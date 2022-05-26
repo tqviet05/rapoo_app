@@ -1,0 +1,2 @@
+module RapooAppHelper
+end
