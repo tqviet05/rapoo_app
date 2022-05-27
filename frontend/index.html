@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2d4ece46dd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="p-3 border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <img src='https://cf.shopee.vn/file/b2342589d4d69b7d726a32e68eae2f7e_tn'
+              class="rounded-circle border boder-5" style='border: 3px solid #08a6c6;width: 100px'>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+          </ul>
+
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+          </form>
+
+          <button type="button" class="btn position-relative me-4">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              99+
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
+
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- BANNER SLIDER -->
+  <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="frontend/assets/images/banner1.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="frontend/assets/images/banner2.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="frontend/assets/images/banner3.jpeg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- / BANNER SLIDER -->
+
+  <main class="container">
+
+    <!-- SECTION RECENTLY PRODUCTS -->
+    <div class="product-recently my-5">
+      <h3 class="pb-2 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
+        Product recently
+      </h3>
+
+      <div class="row g-3">
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product3.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product4.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product4.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product3.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / SECTION RECENTLY PRODUCTS -->
+
+
+    <div class="row g-5">
+      <div class="col-md-10">
+        <!-- <h3 class="pb-4 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
+          From the Firehose
+        </h3> -->
+        <div class="py-2 mb-1" style='border-top: 4px solid #08a6c6'>
+          <div class=" d-flex"><span class="shopee-sort-bar__label" >
+            Sắp xếp theo:</span>
+            <div class="d-flex">
+              <div class="px-3" >
+                Phổ biến
+              </div>
+              <div class="px-3" >
+                Mới nhất
+              </div>
+              <div class="px-3">
+                Bán chạy
+              </div>
+              <div class="dropdown text-end px-3">
+                <!-- <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a> -->
+                <div class="d-block link-dark text-decoration-none dropdown-toggle"id="dropdownUser1"
+                data-bs-toggle="dropdown"> Giá </div>
+    
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                  <li><a class="dropdown-item" href="#">Giá thấp nhất</a></li>
+                  <li><a class="dropdown-item" href="#">Giá cao nhất</a></li>
+                  
+                </ul>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        <!-- Products -->
+        <div class="row g-3">
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card p-3 text-center">
+              <img src="frontend/assets/images/products/product2.jpeg" alt="">
+              <p class="h5 pt-2">This is product </p>
+            </div>
+          </div>
+        </div>
+        <!-- / Products -->
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+        <!-- /Pagination -->
+
+      </div>
+      <!-- Side bar -->
+      <div class="col-md-2">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> -->
+                Sản phẩm
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg> -->
+                TOP DEAL VĂN PHÒNG
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> -->
+                TOP DEAL GAMING
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> -->
+                Chuột Văn Phòng
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> -->
+                Bàn Phím Văn Phòng
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> -->
+                Combo Chuột & Bàn Phím
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> -->
+                Chuột Gaming
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> -->
+                Bàn Phím Gaming
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> -->
+                Tay Cầm Gaming
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> -->
+                Tai nghe
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Side bar -->
+
+
+    </div>
+
+  </main>
+
+  <footer class="blog-footer container d-flex justify-content-around align-items-center py-2"
+    style='border-top: 4px solid #08a6c6;'>
+    <div class='d-flex align-items-center'>
+      <i class="fa-solid fa-arrow-rotate-left" style="font-size: 50px;color: #08a6c6;"></i>
+      <div>7 ngày miễn phí trả hàng <br>Trả hàng miễn phí trong 7 ngày</div>
+    </div>
+    <div class='d-flex align-items-center'>
+      <i class="fa-solid fa-truck-arrow-right" style="font-size: 50px;color: #08a6c6;"></i>
+      <div>
+        Hàng chính hãng 100% <br>Đảm bảo hàng chính hãng <br>hoặc hoàn tiền
+        gấp đôi
+      </div>
+    </div>
+    <div class='d-flex align-items-center'>
+      <i class="fa-solid fa-plane-circle-check" style="font-size: 50px;color: #08a6c6;"></i>
+      <div>
+        Miễn phí vận chuyển <br>Giao hàng miễn phí toàn quốc
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
