@@ -8,11 +8,15 @@ gem 'sidekiq'
 gem 'stripe'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'faker', '2.1.2'
+gem 'will_paginate', '~>3.1.8'
+gem 'bootstrap-will_paginate', '~>1.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -33,6 +37,9 @@ gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+gem 'seed-fu'
+gem 'pry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,175 @@
+  <!-- BANNER SLIDER -->
+<div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= link_to image_tag("banner1.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
+      </div>
+      <div class="carousel-item">
+        <%= link_to image_tag("banner2.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
+      </div>
+      <div class="carousel-item">
+        <%= link_to image_tag("banner3.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!-- / BANNER SLIDER -->
+<main class="container">
+<!-- SECTION RECENTLY PRODUCTS -->
+<div class="product-recently my-5">
+  <h3 class="pb-2 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
+    Product recently
+  </h3>
+
+  <div class="row g-3">
+    <% @prod.each do |p|  %>
+    <div class="col-md-2">
+      <div class="card p-3 text-center">
+        <%= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"170px"),"#"   %>
+        <p class="h5 pt-2"><%= p.name %> </p>
+      </div>
+    </div>
+    <% end %>
+    
+  </div>
+</div>
+<!-- / SECTION RECENTLY PRODUCTS -->
+  <div class="row g-5">
+    <div class="col-md-10">
+      <!-- Products -->
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <img src="frontend/assets/images/products/product2.jpeg" alt="">
+            <p class="h5 pt-2">This is product </p>
+          </div>
+        </div>
+      </div>
+      <!-- / Products -->
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+      <!-- /Pagination -->
+
+    </div>
+    <!-- Side bar -->
+    <div class="col-md-2">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              Sản phẩm
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              TOP DEAL VĂN PHÒNG
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              TOP DEAL GAMING
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Chuột Văn Phòng
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Bàn Phím Văn Phòng
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Combo Chuột & Bàn Phím
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Chuột Gaming
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Bàn Phím Gaming
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Tay Cầm Gaming
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Tai nghe
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- /Side bar -->
+
+
+  </div>
+
+</main>
+  <%= render 'layouts/footer_app'  %>
