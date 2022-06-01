@@ -2,14 +2,7 @@
     <div class="col-md-12 mt-3">
       <!-- Result search -->
       <div class="row g-3">
-        <% @products.each do |p|  %>
-          <div class="col-md-3">
-            <div class="card p-3 text-center card-height">
-              <%= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"170px"),"#"   %>
-              <p class="h5 pt-2"><%= p.name %></p>
-            </div>
-          </div>
-       <% end %>
+        <%= render @products %>
       <%= paginate @products, window: 3 %>
       </div>
       <!-- / Result search -->

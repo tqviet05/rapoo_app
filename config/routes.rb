@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/show'
+  get 'categories/index'
   get 'products/show'
   get 'products/index'
   # get 'home/index'

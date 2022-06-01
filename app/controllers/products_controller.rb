@@ -5,7 +5,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @q = Product.ransack(params[:q])
+    @product = Product.find_by(id: params[:id])
+    # binding.pry
+
   end
 end
