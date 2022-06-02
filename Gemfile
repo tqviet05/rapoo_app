@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 gem "devise", "~> 4.1"
+gem 'devise-bootstrap-views', '~> 1.0'
 gem "pundit"				
 gem 'sidekiq'
 gem 'stripe'

@@ -5,15 +5,15 @@
     <%= render 'layouts/rails_default'  %>
   </head>
 
-  <body>
+  <body class="session-page">
+    <div class="form-signin">
     <div class="container-fluid">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
 
     <%= yield %>
-
-    <%# <%= render 'layouts/footer' %> 
+    </div>
 
   </body>
 </html>
