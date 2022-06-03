@@ -8,52 +8,26 @@
   </nav>
   <!-- /breadcrump -->
   <div class="row g-3">
-    <!-- images product -->
-    <div class="col-md-4" style="text-align: center;">
-      <div>
-        <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-        <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-            <img src="/frontend/assets/images/products/product3.jpeg" alt="">
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"100%")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /images product -->
+      <%= render 'images_product' %>
+      <%#= binding.pry %>
     <!-- Detail prices -->
     <div class="col-md-8">
-      <p class="h2 pt-2">Bộ bàn phím & chuột có dây Rapoo X120 Pro </p>
-      <p class="h1 ">Giá tiền: <span style='color:#c60808'>112.344 </span> VNĐ </p>
+      <p class="h2 pt-2">
+        <%= @product.name %>
+      </p>
+      <p class="h1 ">
+        Giá tiền: 
+        <span style='color:#c60808'>
+          <%= @product.price  %>
+        </span> VNĐ 
+      </p>
       <p class="h3 ">Tình trạng: Còn hàng </p>
-      <p class="h3 ">Số lượng: <span style='color:#0844c6'><input type="number" id="quantity" name="quantity" min="1" style="width: 70px;"></span> </p>
+      <p class="h3 ">
+        Số lượng: 
+        <span style='color:#0844c6'>
+          <input type="number" id="quantity" name="quantity" min="1" style="width: 70px;">
+        </span> 
+      </p>
       <div class='d-inline mb-2'>
         <button type="button" class="btn btn-outline-info btn-lg">Thêm vào giỏ</button>
         <button type="button" class="btn btn-info btn-lg ms-2">MUA NGAY</button>

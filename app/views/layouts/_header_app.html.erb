@@ -21,7 +21,7 @@
           <button type="button" class="btn position-relative me-4">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              99+
+              <%= current_user.present? ? @cart_items_count : '0'%>
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>
@@ -39,11 +39,12 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><%= button_to "Sign out",destroy_user_session_path,class:"dropdown-item", class:"dropdown-item",method: :delete %></li>
+                <li><%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
               </ul>
             </div>
           <%else %>
-            <div><%= link_to 'Log in', new_user_session_path, class:'text-decoration-none d-block link-dark text-end' %></div>
+            <div><%= link_to 'Sign up', new_user_registration_path, class:'text-decoration-none d-block link-dark text-end ' %></div>
+            <div><%= link_to 'Log in', new_user_session_path, class:'text-decoration-none d-block link-dark text-end ms-2' %></div>
           <%end%>
 
         </div>

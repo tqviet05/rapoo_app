@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_023940) do
+ActiveRecord::Schema.define(version: 2022_05_30_042421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,63 +33,58 @@ ActiveRecord::Schema.define(version: 2022_06_02_023940) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "product_id"
-    t.integer "card_id"
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.float "total_money"
-    t.integer "customer_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.integer "phone"
-    t.string "address"
-    t.string "password_digest"
-    t.string "gender"
-    t.string "birthday"
+    t.string "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "delivery_informations", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name"
     t.integer "phone"
     t.string "address"
-    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_delivery_informations_on_user_id"
   end
 
   create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id"
     t.float "price"
     t.integer "quantity"
-    t.integer "oder_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
+    t.bigint "cart_id"
     t.float "pretax"
     t.float "tax"
     t.float "coupon"
     t.float "order_total"
-    t.integer "card_id"
     t.string "payment_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -97,9 +92,10 @@ ActiveRecord::Schema.define(version: 2022_06_02_023940) do
     t.string "image"
     t.float "price"
     t.string "description"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,13 +104,13 @@ ActiveRecord::Schema.define(version: 2022_06_02_023940) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.integer "phone"
+    t.string "phone"
     t.string "address"
     t.boolean "gender"
     t.date "birthday"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
