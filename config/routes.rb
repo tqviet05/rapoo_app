@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # get 'categories/show'
-  # get 'categories/index'
-  # get 'products/show'
-  # get 'products/index'
-  # get 'home/index'
-  # get 'home/details'
-  # get 'home/login'
   resources :home, only: [:index, :create]
   resources :products, only: [:index, :show]
   resources :categories, only: :show

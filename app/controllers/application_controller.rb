@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   layout Proc.new { |controller| controller.devise_controller? ? 'user' : 'application' }
+  
   protected
  
   def configure_permitted_parameters
