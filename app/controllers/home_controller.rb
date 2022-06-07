@@ -18,8 +18,6 @@ class HomeController < ApplicationController
 
   def current_cart
     @current_cart ||= current_user.cart
-    # .find_or_create_by(user_id: current_user.id)
-    # @current_cart = current_user.cart.last 
   end
 
 end

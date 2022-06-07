@@ -9,7 +9,6 @@
   <!-- /breadcrump -->
   <div class="row g-3">
       <%= render 'images_product' %>
-      <%#= binding.pry %>
     <!-- Detail prices -->
     <div class="col-md-8">
       <p class="h2 pt-2">
@@ -18,20 +17,24 @@
       <p class="h1 ">
         Giá tiền: 
         <span style='color:#c60808'>
-          <%= @product.price  %>
+          <%= number_with_delimiter(@product.price.to_i, delimiter: '.')  %>
         </span> VNĐ 
       </p>
       <p class="h3 ">Tình trạng: Còn hàng </p>
+        <%= form_for @cart_item do |f| %>
+        <%= hidden_field_tag :pid, @product.id %>
       <p class="h3 ">
         Số lượng: 
         <span style='color:#0844c6'>
-          <input type="number" id="quantity" name="quantity" min="1" style="width: 70px;">
+          <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: @cart_item.quantity) %>
         </span> 
       </p>
       <div class='d-inline mb-2'>
-        <button type="button" class="btn btn-outline-info btn-lg">Thêm vào giỏ</button>
+        <%= f.submit('Thêm vào giỏ', class:'btn btn-outline-info btn-lg') %>
+        <% end %>
         <button type="button" class="btn btn-info btn-lg ms-2">MUA NGAY</button>
       </div>
+
       <p class="h3 my-2">Gọi điện để được tư vấn: <span style='color:#c60808'>02363.123.456</span> </p>
 
       <div class="container d-flex justify-content-around align-items-center py-2"
