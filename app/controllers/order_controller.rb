@@ -11,8 +11,9 @@ class OrderController < ApplicationController
     @cart_items_count = current_cart.cart_items.count if current_user.present? 
     @cart_items = current_cart.cart_items.includes(:product)
     @total  = @current_cart[:total_money]
+    @deliveries = current_user.deliveries
+    @deliveries_form = current_user.deliveries.build
     # binding.pry
-    @delivery = current_user.deliveries.build
     # @cart_items.each do |item|
     #   quantity = item.quantity
     #   price = item.product.price
@@ -20,6 +21,11 @@ class OrderController < ApplicationController
     # end
     # @current_cart.update(total_money: @total)
   end
+
+  def create
+    binding.pry
+  end
+  
   private 
 
   def current_cart
