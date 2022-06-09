@@ -1,9 +1,9 @@
- <div class="card mb-3">
+ <div class="mb-3">
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-row align-items-center">
         <div>
-          <%= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"Shopping item", width:"65px", class:"img-fluid rounded-3"), product_path(item.product.id)  %>
+          <%#= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"Shopping item", width:"65px", class:"img-fluid rounded-3"), product_path(item.product.id)  %>
         </div>
         <div class="ms-3">
           <h5>
@@ -14,8 +14,8 @@
           </p>
         </div>
       </div>
-      <div class="d-flex flex-row align-items-center">
-        <div style="width: 80px;">
+      <div class="d-flex flex-row align-items-center ">
+        <div style="width: 50px;">
           <h5 class="fw-normal mb-0">
             <%= item.quantity %>
           </h5>
@@ -27,7 +27,7 @@
           </h5>
         </div>
 
-        <div style="width: 200px;">
+        <div style="width: 150px;">
           <h5 class="mb-0 text-end pe-2">
             <%= number_with_delimiter((item.product.price * item.quantity).to_i, delimiter: '.') %> VND
           </h5>

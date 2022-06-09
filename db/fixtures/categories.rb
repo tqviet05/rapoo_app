@@ -1,9 +1,9 @@
 Category.delete_all
 
 categories =
-  ['Sản phẩm','TOP DEAL VĂN PHÒNG','TOP DEAL GAMING',
-  'Chuột Văn Phòng','Bàn Phím Văn Phòng','Combo Chuột & Bàn Phím',
-  'Chuột Gaming','Bàn Phím Gaming','Tay Cầm Gaming','Tai nghe']
+  ['Product','TOP DEAL OFFICE','TOP DEAL GAMING',
+  'Office Mouse','Keybroad Office','Combo Mouse & Keybroad',
+  'Gaming Mouse','Gaming Keybroad','Gaming Console','Headphone']
 
 categories.each_with_index do |value, index|
   Category.seed do |s|
