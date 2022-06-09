@@ -10,7 +10,12 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @cart_items_count = current_cart.cart_items.count if current_user.present? 
     # tao doi tuong cart_item cho form_for add cart
-    @cart_item = current_cart.cart_items.find_or_initialize_by(product_id: params[:id]) 
+    if current_user.present?
+      @cart_item = current_cart.cart_items.find_or_initialize_by(product_id: params[:id]) 
+    else
+      @cart_item = CartItem.find_or_initialize_by(product_id: params[:id]) 
+    end
+     
   end
 
   private 

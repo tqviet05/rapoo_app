@@ -1,3 +1,4 @@
+<% provide(:title, 'Products') %>
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -26,7 +27,12 @@
       <p class="h3 ">
         Số lượng: 
         <span style='color:#0844c6'>
+        <% if current_user.present? %>
           <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: @cart_item.quantity) %>
+          <%else %>
+          <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: '0') %>
+          <% end %>
+
         </span> 
       </p>
       <div class='d-inline mb-2'>
