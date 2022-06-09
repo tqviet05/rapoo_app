@@ -21,7 +21,7 @@
           <button type="button" class="btn position-relative me-4">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              <%= current_user.present? ? @cart_items_count : '0'%>
+              <%= @current_cart.present? ? @cart_items_count : '0'%>
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>

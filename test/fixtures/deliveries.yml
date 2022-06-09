@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  phone: 
+  phone: 1
   address: MyString
-  customer_id: 
+  user: 
 
 two:
   name: MyString
-  phone: 
+  phone: 1
   address: MyString
-  customer_id: 
+  user: 

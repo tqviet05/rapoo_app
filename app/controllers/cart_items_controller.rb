@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-
+      Cart.find_or_create_by(user_id: current_user[:id])
     # create a new cart
     if cart_item_limit!
       current_cart
