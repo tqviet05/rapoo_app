@@ -36,7 +36,9 @@
                     </p>
                   </div>
                   <div class="d-flex justify-content-end mb-2">
+                    <%if @total != 0 %>
                     <%= link_to 'Checkout',new_order_path(), class:"me-2 btn btn-outline-primary btn-block btn-lg"  %>
+                    <% end %>
                   </div>
                 </div>
               </div>
