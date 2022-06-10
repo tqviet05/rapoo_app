@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :payment_token
       t.belongs_to :cart , null: false
       t.belongs_to :user , null: false
-      t.integer :delivery
+      t.belongs_to :delivery , null: false
       
       t.timestamps
     end

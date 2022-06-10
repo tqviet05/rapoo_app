@@ -21,7 +21,6 @@ class OrderItemsController < ApplicationController
         updated_at: Time.now.utc
       }
     end
-    # binding.pry
     order.order_items.insert_all(order_items)
     order_items.each do |item|
 

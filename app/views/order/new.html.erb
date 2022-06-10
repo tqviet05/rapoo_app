@@ -16,7 +16,6 @@
                 </h5>
                 <hr>
               <div class="col-lg-6">
-
                <%= render partial:'order/deliveries/deliveries', locals: {deliveries: @deliveries, deliveries_form: @deliveries_form} %>
               </div>
               <div class="col-lg-6">
@@ -31,12 +30,7 @@
                 </div>
 
                 <div class=" mb-3">
-                  <div class= 'card-body'>
-                    <div class="d-flex justify-content-end">
-                      <%= link_to 'Payment',order_items_path(), class:"me-2 btn btn-dark d-block mx-auto btn-lg"  %>
-                    </div>
                   
-                  </div>
                   <div class="card-body">
 
                     <div class="d-flex justify-content-between mt-2">

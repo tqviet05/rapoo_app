@@ -24,23 +24,19 @@
       <p class="h3 ">Tình trạng: Còn hàng </p>
         <%= form_for @cart_item do |f| %>
         <%= hidden_field_tag :pid, @product.id %>
-      <p class="h3 ">
+      <p class="h3 d-inline">
         Số lượng: 
-        <span style='color:#0844c6'>
-        <% if current_user.present? %>
+        <span>
+        <% if @current_cart.present? %>
           <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: @cart_item.quantity) %>
           <%else %>
-          <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: '0') %>
+          <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: '1') %>
           <% end %>
+        <%= f.submit('Thêm vào giỏ', class:'btn btn-outline-info btn-lg') %>
+        <% end %>
 
         </span> 
       </p>
-      <div class='d-inline mb-2'>
-        <%= f.submit('Thêm vào giỏ', class:'btn btn-outline-info btn-lg') %>
-        <% end %>
-        <button type="button" class="btn btn-info btn-lg ms-2">MUA NGAY</button>
-      </div>
-
       <p class="h3 my-2">Gọi điện để được tư vấn: <span style='color:#c60808'>02363.123.456</span> </p>
 
       <div class="container d-flex justify-content-around align-items-center py-2"

@@ -12,7 +12,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'faker', '2.1.2'
 gem 'ransack'
-
+gem "paranoia", "~> 2.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 # Use sqlite3 as the database for Active Record
