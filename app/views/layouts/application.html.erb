@@ -6,12 +6,12 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+    <%= render 'layouts/header_app'  %>
+    <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
 
-    <%= render 'layouts/header_app'  %>
     <%= yield %>
 
   </body>

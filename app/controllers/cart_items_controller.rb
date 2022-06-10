@@ -11,9 +11,16 @@ class CartItemsController < ApplicationController
       # update quantity cart items
       @cart_item.quantity.blank? ? @cart_item.quantity =1 : @cart_item.quantity += params[:quantity].to_i
       @cart_item.save
-      redirect_to request.referrer || root_url
+      respond_to do |format|
+        format.html { redirect_to request.referrer, notice: 'Add cart success' }
+      end
+      # redirect_to root_url
+      # redirect_to request.referrer || root_url
     else
-      redirect_to root_url
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Cart is fully' }
+      end
+      # redirect_to root_url
     end
   end
 
@@ -27,9 +34,15 @@ class CartItemsController < ApplicationController
       current_cart
       @cart_item = current_cart.cart_items.find_or_create_by!(id: params[:id]) 
       @cart_item.update!(quantity: params[:cart_item][:quantity] )
-      redirect_to request.referrer || root_url
+      respond_to do |format|
+        format.html { redirect_to request.referrer, notice: 'Add cart success' }
+      end
+      # redirect_to request.referrer || root_url
     else
-      redirect_to root_url
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Cart is fully' }
+      end
+      # redirect_to root_url
     end
   end
 

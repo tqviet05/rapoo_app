@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  get 'deliveries/index'
-  get 'deliveries/new'
-  get 'deliveries/show'
+  # get 'deliveries/index'
+  # get 'deliveries/new'
+  # get 'deliveries/show'
   devise_for :users
 
-  resources :home, only: [:index, :create]
+  resources :home, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :categories, only: :show
   resources :cart
   resources :cart_items
   resources :order
   resources :order_items
+  resources :deliveries
   
   root 'home#index'
   

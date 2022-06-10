@@ -7,6 +7,8 @@ class HomeController < ApplicationController
   end
 
   def show
+    @q = Product.ransack(params[:q])
+    @cart_items_count = current_cart.cart_items.count if current_user.present? && current_cart.present?
     
   end
 

@@ -41,7 +41,11 @@ class OrderController < ApplicationController
       )
     end
     current_cart.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path, alert: 'Payment successful' }
+    end
+    # flash[:notice] = 'Payment successful'
+    # redirect_to root_path
   end
   
   private 

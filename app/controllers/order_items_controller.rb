@@ -22,10 +22,6 @@ class OrderItemsController < ApplicationController
       }
     end
     order.order_items.insert_all(order_items)
-    order_items.each do |item|
-
-    end
-
   end
 end
 
