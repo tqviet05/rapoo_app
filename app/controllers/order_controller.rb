@@ -1,12 +1,12 @@
 class OrderController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @q = Product.ransack(params[:q])
-    @cart_items_count = current_cart.cart_items.count if current_user.present? 
-    # binding.pry
+  # def index
+  #   @q = Product.ransack(params[:q])
+  #   @cart_items_count = current_cart.cart_items.count if current_user.present? 
+  #   # binding.pry
 
-  end
+  # end
 
   def new
     @q = Product.ransack(params[:q])
@@ -25,8 +25,15 @@ class OrderController < ApplicationController
     current_delivery = current_user.deliveries.find_or_create_by(id: params[:delivery][:id])
     current_delivery.update!(delivery_params)
     #  tao order
-    # binding.pry
-    current_order = Order.find_or_create_by(user_id: current_user.id, delivery_id: current_delivery.id, cart_id: current_cart.id)
+    binding.pry
+    current_order = 
+      Order.find_or_create_by(
+        user_id: current_user.id, 
+        name: current_delivery.name, 
+        phone: current_delivery.phone,
+        address: current_delivery.address,
+        cart_id: current_cart.id
+      )
     price = @current_cart.total_money
     tax = 10
     coupon = 0
@@ -42,17 +49,19 @@ class OrderController < ApplicationController
     end
     current_cart.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, alert: 'Payment successful' }
+      format.html { redirect_to histories_path, alert: 'Payment successful' }
     end
     # flash[:notice] = 'Payment successful'
     # redirect_to root_path
   end
   
+
   private 
 
   def current_cart
     @current_cart ||= current_user.cart
   end
+  
   def delivery_params
     params.require(:delivery).permit(:phone, :name, :address)
   end

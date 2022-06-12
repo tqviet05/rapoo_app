@@ -8,8 +8,13 @@
   <body>
     <%= render 'layouts/header_app'  %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if alert %>
+          <p class="notice text-success"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert text-danger"><%= alert %></p>
+      <% end %>
     </div>
 
     <%= yield %>

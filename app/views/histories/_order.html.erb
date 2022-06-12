@@ -1,0 +1,33 @@
+<div class="row">
+
+  <div class="col-lg-6">
+    <p> Payment date: <%= order.created_at%></p>
+
+    <p> Delivery address: <%= order.address%></p>
+    <p> Name: <%= order.name%></p>
+    <p> Phone Number: <%= order.phone%></p>
+
+  </div>
+
+  <div class="col-lg-6">
+    <div class=" mb-3">
+      
+      <div class="card-body">
+
+        <div class="d-flex justify-content-between mt-2">
+          <h5 class="mb-2 ms-4 fw-bold">TOTAL ORDER</h5>
+          <div style="width: 200px;">
+            <h5 class="mb-2 me-2 fw-bold text-end">
+              <%=number_with_delimiter(order.payment.to_i, delimiter: '.') %> VND
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    
+    <%= render partial:'order/order_item', collection: order.order_items, as: :item %>
+  </div>
+
+</div>
+<hr>

@@ -1,0 +1,14 @@
+<% provide(:title, 'Histories') %>
+<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+            <%= render partial: 'histories/order', collection: @orders %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :order
   resources :order_items
   resources :deliveries
+  resources :histories, only: [:index]
   
   root 'home#index'
   
