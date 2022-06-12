@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pretax: 1.5
+  tax: 1.5
+  coupon: 1.5
+  order_total: 1.5
+  card_id: 
+  payment_token: MyString
+
+two:
+  pretax: 1.5
+  tax: 1.5
+  coupon: 1.5
+  order_total: 1.5
+  card_id: 
+  payment_token: MyString

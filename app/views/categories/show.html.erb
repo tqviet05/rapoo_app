@@ -1,0 +1,23 @@
+<% provide(:title, 'Categories') %>
+<div class="container">
+  <div class="row g-3 mt-3">
+  
+    <div class="col-md-10">
+      <!-- Result search -->
+      <div class="row g-3">
+        <%= render @products %>
+      <%= paginate @products, window: 3 %>
+      </div>
+      <!-- / Result search -->
+    </div>
+    <!-- Side bar category section -->
+    <div class="col-md-2">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <%= render partial:'home/categories_side_bar', collection: @categories, as: :c  %>
+        </ul>
+      </div>
+    </div>
+    <!-- /Side bar category section -->
+</div>
+</div>

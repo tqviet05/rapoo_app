@@ -1,0 +1,55 @@
+  <div class="container">
+    <header class="p-3 border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <img src='https://cf.shopee.vn/file/b2342589d4d69b7d726a32e68eae2f7e_tn'
+              class="rounded-circle border boder-5" style='border: 3px solid #08a6c6;width: 100px'>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+          </ul>
+
+          <%= search_form_for build_ransack do |f| %>
+            <%= f.search_field :name_cont, class:"form-control", placeholder:"Search...", aria_label:"Search"  %> 
+          <% end %> 
+
+          <%= link_to cart_index_path do  %>
+          <button type="button" class="btn position-relative me-4">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <%= build_number_cart_items %>
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <%= image_tag("https://github.com/mdo.png",alt:"mdo", width:"32", height:"32",class:"rounded-circle") %>
+              </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><%= link_to "Account",home_path(current_user.id),class:"dropdown-item" %></li>
+                <li><%= link_to "Purchase",deliveries_path,class:"dropdown-item" %></li>
+                <li><%= link_to "History",histories_path,class:"dropdown-item" %></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+          <%else %>
+            <div><%= link_to 'Sign up', new_user_registration_path, class:'text-decoration-none d-block link-dark text-end ' %></div>
+            <div><%= link_to 'Log in', new_user_session_path, class:'text-decoration-none d-block link-dark text-end ms-2' %></div>
+          <%end%>
+
+        </div>
+      </div>
+    </header>
+  </div>

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RapooApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= full_title(yield(:title))%></title>
+    <%= render 'layouts/rails_default'  %>
   </head>
 
   <body>
+    <%= render 'layouts/header_app'  %>
+    <div class="container">
+      <% if alert %>
+          <p class="notice text-success"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert text-danger"><%= alert %></p>
+      <% end %>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>

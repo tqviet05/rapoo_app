@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RapooApp</title>
+    <%= render 'layouts/rails_default'  %>
+  </head>
+
+  <body class="session-page">
+    <div class="form-signin">
+    <div class="container-fluid">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
