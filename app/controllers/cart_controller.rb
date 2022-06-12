@@ -3,8 +3,6 @@ class CartController < ApplicationController
   def index
       Cart.find_or_create_by(user_id: current_user[:id])
 
-      @q = Product.ransack(params[:q])
-      @cart_items_count = current_cart.cart_items.count if current_cart.present? 
       @cart_items = current_cart.cart_items.includes(:product)
       @total  = 0
       @cart_items.each do |item|

@@ -14,14 +14,15 @@
             <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
           </ul>
 
-          <%= search_form_for @q do |f| %>
+          <%= search_form_for build_ransack do |f| %>
             <%= f.search_field :name_cont, class:"form-control", placeholder:"Search...", aria_label:"Search"  %> 
           <% end %> 
+
           <%= link_to cart_index_path do  %>
           <button type="button" class="btn position-relative me-4">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              <%= @current_cart.present? ? @cart_items_count : '0'%>
+              <%= build_number_cart_items %>
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>
