@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     
     @current_cart ||= current_user.cart
   end
-  
+
   protected
  
   def configure_permitted_parameters

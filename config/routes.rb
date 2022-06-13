@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'deliveries/show'
   devise_for :users
 
-  resources :home, only: [:index, :show]
+  resources :home, only: [:index]
   resources :products, only: [:index, :show]
   resources :categories, only: :show
   resources :cart
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :histories, only: [:index]
   
   root 'home#index'
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :admin do
+    resources :home, only: [:index]
+    resources :users
+  end
 end
