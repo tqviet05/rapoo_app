@@ -1,9 +1,5 @@
 class OrderItemsController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-  end
-
   def create
     order = current_cart.order || current_cart.create_order
     order_items = current_cart.cart_items.includes(:product).map do |cart_item|

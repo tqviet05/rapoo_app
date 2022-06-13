@@ -12,18 +12,11 @@ class HomeController < ApplicationController
     end
   end
 
-  def show
-# binding.pry
-  end
-  def edit
-    @user = current_user
-    # binding.pry
-  end
-  def update
-    current_user.update( user_params)
-    redirect_to home_path(current_user.id)
+  # def update
+  #   current_user.update( user_params)
+  #   redirect_to home_path(current_user.id)
 
-  end
+  # end
 
   private
   def build_recently_products_user

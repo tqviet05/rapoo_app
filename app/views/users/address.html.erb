@@ -2,13 +2,14 @@
 <section class="container">
   <div class="row mt-2">
     <div class="col-3">
-
       <%# SIDE BAR %>
       <%= render partial: 'users/side_bar_user.html.erb' %>
       <%# --/SIDE BAR %>
     </div> 
     <div class="col-9">
       <%= render partial: 'deliveries/delivery', collection: @deliveries %>
+      <%= paginate @deliveries, window: 3 %>
+
      
     </div>
   </div>

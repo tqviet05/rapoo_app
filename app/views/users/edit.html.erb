@@ -3,7 +3,7 @@
 <section class="text-center d-flex justify-content-center container">
   <div class="mt-2">
     <h5> Update my profile </h5>
-    <%= form_with model: @user, url: home_path, method: :put do |f| %>
+    <%= form_with model: @user, url: user_path, method: :put do |f| %>
     <p> Name: <%=f.text_field :name %></p>
     <p> Phone: <%=f.text_field :phone %></p>
     <p>
@@ -19,7 +19,7 @@
     </p>
     <div class='flex'>
       <%= f.submit 'Update', class:"btn btn-dark d-block mx-auto btn-submit", data: { disable_with: 'Update' } %>
-      <%= link_to "Back", home_path(current_user.id) %>
+      <%= link_to "Back", user_path(current_user.id) %>
     </div>
 
 

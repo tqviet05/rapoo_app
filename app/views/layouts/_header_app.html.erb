@@ -8,10 +8,10 @@
           </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+            <%# <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Products</a></li> %>
           </ul>
 
           <%= search_form_for build_ransack do |f| %>
@@ -35,9 +35,9 @@
                 <%= image_tag("https://github.com/mdo.png",alt:"mdo", width:"32", height:"32",class:"rounded-circle") %>
               </a>
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                <li><%= link_to "Account",home_path(current_user.id),class:"dropdown-item" %></li>
-                <li><%= link_to "Purchase",deliveries_path,class:"dropdown-item" %></li>
-                <li><%= link_to "History",histories_path,class:"dropdown-item" %></li>
+                <li><%= link_to "Account",user_path(current_user.id),class:"dropdown-item" %></li>
+                <li><%= link_to "Purchase",users_order_path,class:"dropdown-item" %></li>
+                <li><%= link_to "History",users_address_path,class:"dropdown-item" %></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
