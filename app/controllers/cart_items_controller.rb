@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
     Cart.find_or_create_by!(user_id: current_user.id)
     if cart_item_unlimit?
       build_cart_item
-      redirect_to cart_index_path, notice: 'Add cart success' 
+      redirect_to root_path, notice: 'Add cart success' 
     else
       redirect_to root_path, alert: 'Cart is fully'
     end

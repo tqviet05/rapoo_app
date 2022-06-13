@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :deliveries, dependent: :destroy
   has_many :orders
   has_many :recently_products
+  has_many :deliveries
 end

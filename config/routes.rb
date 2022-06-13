@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'deliveries/show'
   devise_for :users
 
-  resources :home, only: [:index]
+  resources :home, only: [:index, :show, :update, :edit]
   resources :products, only: [:index, :show]
   resources :categories, only: :show
   resources :cart

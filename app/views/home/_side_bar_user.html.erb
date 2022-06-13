@@ -1,0 +1,21 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 250px;">
+    <%= link_to current_user.email,home_path(current_user.id), class: "d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" %>
+
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+         <%= link_to "Profile",home_path(current_user.id), class: 'dropdown-item'  %>
+      </li>
+      <li>
+        <%= link_to "Change password", edit_user_registration_path, class: 'dropdown-item' %>
+      </li>
+      <li>
+        <%= link_to "Purchase",histories_path,class:"dropdown-item" %>
+      </li>
+      <li>
+         <%= link_to "Address",deliveries_path,class:"dropdown-item" %>
+      </li>
+    </ul>
+    <hr>
+    
+</div>
