@@ -6,6 +6,8 @@
         <div class="card">
           <div class="card-body p-4">
             <%= render partial: 'histories/order', collection: @orders %>
+            <%= paginate @orders, window: 3 %>
+
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@
     </div> 
     <div class="col-9">
       <%= render partial: 'deliveries/delivery', collection: @deliveries %>
+      <%= paginate @deliveries, window: 3 %>
      
     </div>
   </div>

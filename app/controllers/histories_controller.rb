@@ -1,5 +1,6 @@
 class HistoriesController < ApplicationController
   def index
-    @orders = current_user.orders.order(id: :desc).includes(:order_items).page(params[:page]).per(12)
+    @or = current_user.orders.order(id: :desc).includes(:order_items).ransack(params[:query])
+    @orders = @or.result.page(params[:page]).per(4)
   end
 end
