@@ -3,39 +3,27 @@
     <ul class="nav flex-column">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">
-          <span data-feather="home" class="align-text-bottom"></span>
           Dashboard
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file" class="align-text-bottom"></span>
-          Categories
-        </a>
+        <%= link_to 'Categories',admin_categories_path, class:'nav-link' %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span data-feather="shopping-cart" class="align-text-bottom"></span>
           Products
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span data-feather="users" class="align-text-bottom"></span>
           Banner
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-          Orders
-        </a>
+        <%= link_to 'Orders',admin_orders_path, class:'nav-link' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="layers" class="align-text-bottom"></span>
-          Customers
-        </a>
+        <%= link_to 'Customers',admin_users_path, class:'nav-link' %>
       </li>
     </ul>
 

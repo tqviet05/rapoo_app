@@ -1,7 +1,7 @@
-class Admin::UsersController < AdminController
+class Admin::CategoriesController < AdminController
   def index
-    @q = User.all.ransack(params[:q])
-    @users = @q.result.page(params[:page]).per(20)
+    @q = Category.all.ransack(params[:q])
+    @categories = @q.result.page(params[:page]).per(20)
   end
 
   def edit

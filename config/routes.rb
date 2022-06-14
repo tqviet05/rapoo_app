@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :home, only: [:index]
-    resources :users
+    resources :users, only: [:index, :edit, :new, :create, :update, :destroy]
+    resources :orders,only: [:index, :edit, :create, :update, :destroy]
+    resources :categories, only: [:index, :edit, :new, :create, :update, :destroy]
+
+    
   end
 end

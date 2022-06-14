@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.all.order(position: :asc)
     @products = build_ransack.result.page(params[:page]).per(12)
     if current_user
       build_recently_products_user
