@@ -19,7 +19,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    if cart_item_limit!
+    if cart_item_unlimit?
       current_cart
       @cart_item = current_cart.cart_items.find_or_create_by!(id: params[:id]) 
       @cart_item.update!(quantity: params[:cart_item][:quantity] )
