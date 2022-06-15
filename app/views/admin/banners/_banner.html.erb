@@ -1,0 +1,17 @@
+<tbody>
+  <tr>
+    <td>
+      <%= banner.id %>
+    </td>
+    <td>
+      <%= image_tag(banner.image.url, width: '300') %>
+    </td>
+    <td>
+      <%= link_to admin_banner_path(banner.id), method: :delete, class:"color: #cecece;" do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+    </td>
+
+
+  </tr>
+</tbody>

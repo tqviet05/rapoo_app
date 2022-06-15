@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @banners =Banner.all
     @categories = Category.all.order(position: :asc)
     @products = build_ransack.result.page(params[:page]).per(12)
     if current_user

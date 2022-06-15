@@ -10,15 +10,7 @@
         aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= link_to image_tag("banner1.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
-      </div>
-      <div class="carousel-item">
-        <%= link_to image_tag("banner2.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
-      </div>
-      <div class="carousel-item">
-        <%= link_to image_tag("banner3.jpeg", alt:"...", class:"d-block w-100"),"#"  %>
-      </div>
+      <%= render partial: "home/banner", collection: @banners %>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
       data-bs-slide="prev">

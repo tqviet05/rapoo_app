@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :edit, :new, :create, :update, :destroy]
     resources :orders,only: [:index, :edit, :create, :update, :destroy]
     resources :categories, only: [:index, :edit, :new, :create, :update, :destroy]
-
-    
+    resources :banners, only: [:index, :edit, :new, :create, :update, :destroy]
   end
 end
