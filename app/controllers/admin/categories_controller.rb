@@ -1,40 +1,40 @@
 class Admin::CategoriesController < AdminController
   def index
-    @q = Category.all.ransack(params[:q])
+    @q = Category.all.order(:position).ransack(params[:q])
     @categories = @q.result.page(params[:page]).per(20)
   end
 
   def edit
-    @user = User.new(id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   def update
-    user = User.find_by(id: params[:id])
-    user.update( user_params)
-    redirect_to admin_users_path
+    category = Category.find_by(id: params[:id])
+    category.update( category_params)
+    redirect_to admin_categories_path
   end
 
   def new
     # binding.pry
-    @user = User.new
+    @category = Category.new
 
   end
 
   def create
-    param = params.require(:user).permit(:email, :password, :password_confirmation)
-    user = User.create(param)
-    redirect_to admin_users_path
+    # param = params.require(:category).permit(:email, :password, :password_confirmation)
+    category = Category.create(category_params)
+    redirect_to admin_categories_path
 
   end
 
   def destroy
-    User.find(params[:id]).destroy!
-    redirect_to request.referrer || admin_users_path
+    Category.find(params[:id]).destroy!
+    redirect_to request.referrer || admin_categories_path
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:phone, :name, :address, :gender, :birthday)
+  def category_params
+    params.require(:category).permit(:position, :name)
   end
 end

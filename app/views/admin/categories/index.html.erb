@@ -10,10 +10,10 @@
   
     <h1 class="h2">Categories</h1>
     <div class= 'd-flex'>
-    <%= search_form_for @q ,url: admin_users_path, class: "" do |f| %>
+    <%= search_form_for @q ,url: admin_categories_path, class: "" do |f| %>
       <%= f.search_field :name_cont, class:"form-control rounded-2 border-1", placeholder:"Search...", aria_label:"Search"  %> 
     <% end %> 
-    <%= link_to 'Add User',new_admin_user_path, class:'btn btn-dark ms-1' %>
+    <%= link_to 'Add Category',new_admin_category_path, class:'btn btn-dark ms-1' %>
 
     <%# <input class="form-control w-25 rounded-2 border-1" type="text" placeholder="Search" aria-label="Search"> %>
 

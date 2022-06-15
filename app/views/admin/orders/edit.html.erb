@@ -8,7 +8,7 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   
-    <h1 class="h2">Customers Update</h1>
+    <h1 class="h2">Order Update</h1>
     <div class= 'd-flex'>
    
     </div>
@@ -18,7 +18,7 @@
 
     <section class="text-center d-flex justify-content-center container">
       <div class="mt-2">
-        <h5> Update my profile </h5>
+        <h5> Update Order </h5>
         <%= form_with model: @order, url: admin_order_path, method: :put do |f| %>
         <p> Name: <%=f.text_field :name %></p>
         <p> Phone: <%=f.text_field :phone %></p>
