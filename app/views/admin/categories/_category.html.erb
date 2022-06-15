@@ -1,0 +1,27 @@
+
+<tbody>
+  <tr>
+    <td>
+      <%= category.id %>
+    </td>
+    <td>
+      <%= category.name %>
+    </td>
+    <td>
+      <%= category.position %>
+    </td>
+ 
+    <td>
+      <%= link_to admin_category_path(category.id), method: :delete, class:"color: #cecece;" do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+    </td>
+    <td>
+      <%= link_to edit_admin_category_path(category.id), class:"color: #cecece;" do %>
+        <i class="fa-solid fa-pen"></i>
+        <% end %>
+        
+    </td>
+
+  </tr>
+</tbody>

@@ -1,0 +1,27 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Categories',admin_categories_path, class:'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Products',admin_products_path, class:'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Banners',admin_banners_path, class:'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Orders',admin_orders_path, class:'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Customers',admin_users_path, class:'nav-link' %>
+      </li>
+    </ul>
+
+  </div>
+</nav>

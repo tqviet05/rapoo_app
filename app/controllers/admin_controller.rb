@@ -1,5 +1,6 @@
 class AdminController < ActionController::Base
   layout 'admin/application'
+  include ApplicationHelper
   # before_action :authenticate_admin!
 
   # Prevent CSRF attacks by raising an exception.

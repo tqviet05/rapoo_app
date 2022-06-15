@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def address
     # @query = Product.ransack(params[:query])
-    @query = current_user.deliveries.ransack(params[:query])
-    @deliveries = @query.result.page(params[:page]).per(4)
+    # @query = current_user.deliveries.ransack(params[:query])
+    @deliveries = current_user.deliveries.page(params[:page]).per(4)
     
   end
   def show
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
   def order
-    @or = current_user.orders.order(id: :desc).includes(:order_items).ransack(params[:query])
-    @orders = @or.result.page(params[:page]).per(4)
+    # @or = current_user.orders.order(id: :desc).includes(:order_items).ransack(params[:query])
+    @orders = current_user.orders.order(id: :desc).includes(:order_items).page(params[:page]).per(2)
   end
 
   private
