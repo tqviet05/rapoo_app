@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_attachments
   # get 'deliveries/index'
   # get 'deliveries/new'
   get 'users/order'
@@ -22,8 +23,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :home, only: [:index]
     resources :users, only: [:index, :edit, :new, :create, :update, :destroy]
-    resources :orders,only: [:index, :edit, :create, :update, :destroy]
+    resources :orders,only: [:index, :edit, :update, :destroy]
     resources :categories, only: [:index, :edit, :new, :create, :update, :destroy]
-    resources :banners, only: [:index, :edit, :new, :create, :update, :destroy]
+    resources :banners, only: [:index, :new, :create, :destroy]
+    resources :products, only: [:index, :edit, :new, :create, :update, :destroy]
   end
 end

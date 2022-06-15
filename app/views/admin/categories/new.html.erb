@@ -15,9 +15,11 @@
   </div>
 
   <div class="">
+    <section class="text-left d-flex justify-content-start">
 
       <div class="mt-2">
         <h5> ADD CATEGORY </h5>
+
         <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
         <div class="mb-3 row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
@@ -36,8 +38,6 @@
           <%= f.submit 'Create', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
           <%= link_to "Back", admin_categories_path, class:"ms-2 btn btn-link d-block btn-" %>
         </div>
-
-
         <% end  %>
       </div>
     </section>

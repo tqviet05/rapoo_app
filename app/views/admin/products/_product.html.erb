@@ -1,0 +1,39 @@
+<tbody>
+  <tr>
+    <td>
+      <%= product.id %>
+    </td>
+    <td>
+      <% if product.product_attachments.first %>
+      <%= image_tag(product.product_attachments.last.image.url, width: "300") %>
+      <% else %>
+      <p>No value</p>
+      <%end %>
+    </td>
+    <td>
+      <%= product.name %>
+    </td>
+    <td>
+      <%= product.price %>
+    </td>
+    <td>
+      <%= product.description %>
+    </td>
+    <td>
+      <%= product.category.name %>
+    </td>
+    
+
+    <td>
+      <%= link_to admin_product_path(product.id), method: :delete, class:"color: #cecece;", data: { confirm: 'Are you sure?' } do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+    </td>
+    <td>
+      <%= link_to edit_admin_product_path(product.id), class:"color: #cecece;" do %>
+        <i class="fa-solid fa-pen"></i>
+        <% end %>
+    </td>
+
+  </tr>
+</tbody>

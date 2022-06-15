@@ -11,7 +11,7 @@
     <h1 class="h2">Banners</h1>
     <div class= 'd-flex'>
     <%= search_form_for @q ,url: admin_banners_path, class: "" do |f| %>
-      <%= f.search_field :id, class:"form-control rounded-2 border-1", placeholder:"Search...", aria_label:"Search"  %> 
+      <%= f.search_field :id_cont, class:"form-control rounded-2 border-1", placeholder:"Search...", aria_label:"Search"  %> 
     <% end %> 
     <%= link_to 'Add Banner',new_admin_banner_path, class:'btn btn-dark ms-1' %>
 

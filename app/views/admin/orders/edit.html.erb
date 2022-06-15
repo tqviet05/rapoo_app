@@ -16,16 +16,16 @@
 
   <div class="table-responsive">
 
-    <section class="text-center d-flex justify-content-center container">
+    <section class="text-left d-flex justify-content-start">
       <div class="mt-2">
         <h5> Update Order </h5>
         <%= form_with model: @order, url: admin_order_path, method: :put do |f| %>
-        <p> Name: <%=f.text_field :name %></p>
-        <p> Phone: <%=f.text_field :phone %></p>
-        <p> Address: <%=f.text_field :address %></p>
-        <div class='flex'>
-          <%= f.submit 'Update', class:"btn btn-dark d-block mx-auto btn-submit", data: { disable_with: 'Update' } %>
-          <%= link_to "Back", admin_orders_path %>
+        <p> Name: <%=f.text_field :name, value: @order.name %></p>
+        <p> Phone: <%=f.text_field :phone, value: @order.phone %></p>
+        <p> Address: <%=f.text_field :address, value: @order.address %></p>
+        <div class='d-flex'>
+          <%= f.submit 'Update', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
+          <%= link_to "Back", admin_orders_path, class:'ms-2 btn btn-link d-block' %>
         </div>
 
 

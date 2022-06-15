@@ -5,20 +5,13 @@ class Admin::OrdersController < AdminController
   end
 
   def edit
-    @order = Order.new(id: params[:id])
+    @order = Order.find_by(id: params[:id])
   end
 
   def update
     order = Order.find_by(id: params[:id])
     order.update( order_params)
     redirect_to admin_orders_path
-  end
-
-  def create
-    param = params.require(:user).permit(:email, :password, :password_confirmation)
-    user = User.create(param)
-    redirect_to admin_users_path
-
   end
 
   def destroy
@@ -29,6 +22,6 @@ class Admin::OrdersController < AdminController
   private
 
   def order_params
-    params.require(:order).permit(:phone, :name, :address, :address)
+    params.require(:order).permit(:phone, :name, :address)
   end
 end

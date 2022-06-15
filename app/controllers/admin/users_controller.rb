@@ -5,7 +5,7 @@ class Admin::UsersController < AdminController
   end
 
   def edit
-    @user = User.new(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def update
