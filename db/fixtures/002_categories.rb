@@ -1,7 +1,7 @@
 Category.delete_all
 
 categories =
-  ['Product','TOP DEAL OFFICE','TOP DEAL GAMING',
+  ['Product','Top deal office','Top deal gaming',
   'Office Mouse','Keybroad Office','Combo Mouse & Keybroad',
   'Gaming Mouse','Gaming Keybroad','Gaming Console','Headphone']
 

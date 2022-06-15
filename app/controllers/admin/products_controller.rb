@@ -16,7 +16,7 @@ class Admin::ProductsController < AdminController
     respond_to do |format|
       if @product.update(product_params)
         params[:product_attachments]["image"].each do |i|
-          @product_attachments = @product.product_attachments.create!(image: i, product_id: @product.id)
+          @product_attachments = @product.product_attachments.create!(image: i)
         end
         format.html { redirect_to admin_products_path, notice: 'Post was successfully created.'}
       else
@@ -32,21 +32,17 @@ class Admin::ProductsController < AdminController
   end
 
   def create
-    # param = params.require(:product).permit(:email, :password, :password_confirmation)
-    @product = Product.new(product_params)
-    respond_to do |format|
-      if @product.save 
-        params[:product_attachments]["image"].each do |i|
-          @product_attachments = @product.product_attachments.create!(image: i, product_id: @product.id)
-        end
-        format.html { redirect_to admin_products_path, notice: 'Post was successfully created.'}
-      else
-        format.html { redirect_to new_admin_product_path}
-      end
-    end
-    
-    # redirect_to admin_products_path
+    binding.pry
 
+    @product = Product.new(product_params)
+    # @product_attachments = @product.product_attachments.new(image: params[:product][:product_attachments_attributes])
+    if @product.save
+      # params[:product_attachments]["image"].each { |image| @product.product_attachments.create!(image: image) }
+      redirect_to admin_products_path, notice: 'Post was successfully created.'
+    else
+      @product_attachments = @product.product_attachments.build
+      render :new
+    end
   end
 
   def destroy
@@ -57,7 +53,6 @@ class Admin::ProductsController < AdminController
   private
 
   def product_params
-    params.require(:product).permit(:image, :name, :price, :description, :category_id, 
-                                    product_attachments_attributes: [:id, :product_id, :image])
+    params.require(:product).permit(:image, :name, :price, :description, :category_id, product_attachments_attributes: [image: []])
   end
 end

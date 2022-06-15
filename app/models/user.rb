@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :recently_products
   has_many :deliveries
+  def human_gender
+binding.pry
+  end
 end
