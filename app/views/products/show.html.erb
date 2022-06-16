@@ -2,9 +2,9 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Rapoo</a></li>
-      <li class="breadcrumb-item"><a href="#">Phụ kiện máy tính</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Bàn phím</li>
+      <li class="breadcrumb-item"><a href="#"><%= link_to 'Rapoo', root_path %></a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= link_to @product.category.name, category_path(@product.category_id) %></li>
+      
     </ol>
   </nav>
   <!-- /breadcrump -->
@@ -28,25 +28,25 @@
         <%= @product.name %>
       </p>
       <p class="h1 ">
-        Giá tiền: 
+        Price: 
         <span style='color:#c60808'>
           <%= number_with_delimiter(@product.price.to_i, delimiter: '.')  %>
         </span> VNĐ 
       </p>
-      <p class="h3 ">Tình trạng: Còn hàng </p>
+      <p class="h3 ">Description: <%= @product.description %></p>
 
       <%= form_for CartItem.new do |f| %>
         <%= hidden_field_tag :pid, @product.id %>
         <p class="h3 d-inline">
-          Số lượng: 
+          Quantity: 
           <span>
             <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: '1') %>
-            <%= f.submit('Thêm vào giỏ', class:'btn btn-outline-info btn-lg') %>
+            <%= f.submit('Add Cart', class:'btn btn-outline-info btn-lg') %>
           </span>
         </p>
       <% end %>
 
-      <p class="h3 my-2">Gọi điện để được tư vấn: <span style='color:#c60808'>02363.123.456</span> </p>
+      <p class="h3 my-2">Call us: <span style='color:#c60808'>02363.123.456</span> </p>
 
       <div class="container d-flex justify-content-around align-items-center py-2"
         style='border-top: 4px solid #08a6c6;'>
@@ -73,22 +73,7 @@
     <!-- /Detail prices -->
   </div>
     <!-- Detail datasheet -->
-  <nav class="mt-3">
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" 
-              type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-        Mô tả sản phẩm
-      </button>
-      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" 
-              type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-        Thông số kỹ thuật
-      </button>
-    </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <%= render 'description' %>
-    <%= render partial:'datasheet' %>
-  </div>
+
     <!-- /Detail datasheet -->
 
 </div>
