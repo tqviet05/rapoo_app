@@ -15,7 +15,6 @@ class Admin::CategoriesController < AdminController
   end
 
   def new
-    # binding.pry
     @category = Category.new
 
   end

@@ -1,39 +1,10 @@
 <!-- images product -->
-    <div class="col-md-4" style="text-align: center;">
-      <div>
-        <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"100%")  %>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card p-1 text-center">
-            <%= image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"")  %>
-          </div>
-        </div>
-      </div>
-    </div>
+
+<div class="col-md-3">
+  <div class="card p-1 text-center">
+    <%= image_tag(images_product.image.url, alt:"", width:"")  %>
+  </div>
+</div>
+        
+
     <!-- /images product -->

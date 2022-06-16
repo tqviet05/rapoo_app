@@ -26,13 +26,11 @@ class Admin::ProductsController < AdminController
   end
 
   def new
-    # binding.pry
     @product = Product.new
     @product_attachments = @product.product_attachments.build
   end
 
   def create
-    binding.pry
 
     @product = Product.new(product_params)
     # @product_attachments = @product.product_attachments.new(image: params[:product][:product_attachments_attributes])

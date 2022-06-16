@@ -1,6 +1,6 @@
 <div class="col-md-3">
   <div class="card p-3 text-center card-height">
-    <%= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"", width:"170px"),product_path(product)  %>
+    <%= link_to image_tag(product.image.url, alt:"", width:"170px"),product_path(product)  %>
     <p class="h6 pt-2"><%= product.name %></p>
     <p class="h5 ">Price: <%= number_with_delimiter(product.price.to_i, delimiter: '.') %> VND</p>
     <%= button_to 'Add Cart',cart_items_path(pid: product, quantity: 1) %>

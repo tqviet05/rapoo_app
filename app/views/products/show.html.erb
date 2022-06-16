@@ -9,7 +9,19 @@
   </nav>
   <!-- /breadcrump -->
   <div class="row g-3">
-      <%= render 'images_product' %>
+    <div class="col-md-4" style="text-align: center;">
+      <div>
+        <%= image_tag(@product.image.url, alt:"", width:"")  %>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="card p-1 text-center">
+            <%= image_tag(@product.image.url, alt:"", width:"")  %>
+          </div>
+        </div>
+        <%= render partial: 'images_product', collection: @product_attachments%>
+      </div>
+    </div>
     <!-- Detail prices -->
     <div class="col-md-8">
       <p class="h2 pt-2">

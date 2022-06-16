@@ -15,7 +15,6 @@ class Admin::UsersController < AdminController
   end
 
   def new
-    # binding.pry
     @user = User.new
 
   end

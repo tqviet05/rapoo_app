@@ -5,7 +5,7 @@
     </td>
     <td>
       <% if product.product_attachments.first %>
-      <%= image_tag(product.product_attachments.last.image.url, width: "300") %>
+      <%= image_tag(product.image.url, width: "300") %>
       <% else %>
       <p>No value</p>
       <%end %>
@@ -14,7 +14,8 @@
       <%= product.name %>
     </td>
     <td>
-      <%= product.price %>
+      <%#= product.price %>
+      <%= number_with_delimiter(product.price.to_i, delimiter: '.')  %>
     </td>
     <td>
       <%= product.description %>

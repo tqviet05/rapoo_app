@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'users/order'
   get 'users/address'
   devise_for :users
-  devise_for :admin
-
 
   resources :home, only: [:index]
   resources :products, only: [:index, :show]
@@ -23,6 +21,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :admin do
+    devise_for :admin_users do
+      # get 'sign_in', to: 'devise/sessions#new'
+      # delete 'sign_out', to: 'admin/sessions#destroy'
+    end
 
     resources :home, only: [:index]
     resources :users, only: [:index, :edit, :new, :create, :update, :destroy]

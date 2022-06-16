@@ -15,7 +15,6 @@ class Admin::BannersController < AdminController
   # end
 
   def new
-    # binding.pry
     @banner = Banner.new
 
   end
