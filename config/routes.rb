@@ -28,9 +28,10 @@ Rails.application.routes.draw do
 
     resources :home, only: [:index]
     resources :users, only: [:index, :edit, :new, :create, :update, :destroy]
-    resources :orders,only: [:index, :edit, :update, :destroy]
+    resources :orders
     resources :categories, only: [:index, :edit, :new, :create, :update, :destroy]
     resources :banners, only: [:index, :new, :create, :destroy]
     resources :products, only: [:index, :edit, :new, :create, :update, :destroy]
   end
 end
+# ,only: [:index, :edit, :update, :destroy]

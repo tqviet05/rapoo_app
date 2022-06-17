@@ -1,22 +1,12 @@
-
-$("#product_image").bind("change", function(){
-    var size_in_megabytes = this.files(0).size/1024/1024;
-      if (size_in_megabytes > 1) {
-        alert("Maximum file size is 1MB. Please choose an other file!");
+document.addEventListener("turbolinks:load", function() {
+  function preview_img (input, output) {
+    let select = document.getElementById(input);
+    select.addEventListener('change', function (){
+      if (this.files) {
+        document.getElementById(output).src = URL.createObjectURL(this.files[0])
       }
-  });
+    })
+  }
 
-
-$("#banner_image").bind("change", function(){
-    var size_in_megabytes = this.files(0).size/1024/1024;
-      if (size_in_megabytes > 1) {
-        alert("Maximum file size is 1MB. Please choose an other file!");
-      }
-  });
-$("#banner_image").onchange = (evt) => {
-  alert( "Handler for .change() called." )
-  // const file = $("#banner_image").files
-  // if (file) {
-  //   $("#blah").src = URL.createObjectURL(file[0])
-  // }
-}
+  preview_img('banner_image', 'js-img-preview')
+});

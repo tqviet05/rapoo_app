@@ -15,20 +15,14 @@
         </div>
       </div>
       <div class="d-flex flex-row align-items-center">
-        <div style="width: 80px;">
-          <h5 class="fw-normal mb-0">
-            <%= form_for cart_item do |f| %>
+        <%= form_for cart_item do |f| %>
+          <div>
             <%= hidden_field_tag :pid, cart_item.product_id %>
             <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: cart_item.quantity) %>
-          </h5>
-        </div>
-        <div style="width: 80px;">
-          <h5 class="fw-normal mb-0">
             <%= f.submit('Update', class:'') %>
-            <% end %>
-          </h5>
+          </div>
+        <% end %>
 
-        </div>
 
         <div style="width: 80px;">
           <h5 class="mb-0 text-end">
@@ -41,8 +35,9 @@
             <%= number_with_delimiter((cart_item.product.price * cart_item.quantity).to_i, delimiter: '.') %>
           </h5>
         </div>
+
         <%= link_to cart_item_path(cart_item.id), method: :delete, class:"color: #cecece;" do %>
-        <i class="fas fa-trash-alt"></i>
+          <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
     </div>

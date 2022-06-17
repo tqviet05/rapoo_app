@@ -1,5 +1,6 @@
 class OrderController < ApplicationController
   before_action :authenticate_user!
+  before_action :current_cart! 
 
   def new
     @cart_items = current_cart.cart_items.includes(:product)
@@ -64,6 +65,8 @@ class OrderController < ApplicationController
       description: 'Rapoo app',
       source: token,
     })
-
+  end
+  def current_cart!
+    redirect_to root_path , alert: ' Your needs add product into cart' if current_cart.blank?
   end
 end
