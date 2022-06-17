@@ -13,15 +13,11 @@ class Admin::ProductsController < AdminController
   def update
     @product = Product.find_by(id: params[:id])
     # redirect_to admin_products_path
-    respond_to do |format|
-      if @product.update(product_params)
-        params[:product_attachments]["image"].each do |i|
-          @product_attachments = @product.product_attachments.create!(image: i)
-        end
-        format.html { redirect_to admin_products_path, notice: 'Post was successfully created.'}
-      else
-        format.html { redirect_to edit_admin_product_path}
-      end
+    if @product.update(product_params)
+      params[:product_attachments]["image"].each {|i| @product_attachments = @product.product_attachments.create!(image: i)}
+      redirect_to admin_products_path, notice: 'Post was successfully created.'
+    else
+      redirect_to edit_admin_product_path
     end
   end
 
@@ -35,7 +31,7 @@ class Admin::ProductsController < AdminController
     @product = Product.new(product_params)
     # @product_attachments = @product.product_attachments.new(image: params[:product][:product_attachments_attributes])
     if @product.save
-      # params[:product_attachments]["image"].each { |image| @product.product_attachments.create!(image: image) }
+      params[:product_attachments]["image"].each { |image| @product.product_attachments.create!(image: image) }
       redirect_to admin_products_path, notice: 'Post was successfully created.'
     else
       @product_attachments = @product.product_attachments.build
@@ -51,6 +47,6 @@ class Admin::ProductsController < AdminController
   private
 
   def product_params
-    params.require(:product).permit(:image, :name, :price, :description, :category_id, product_attachments_attributes: [image: []])
+    params.require(:product).permit(:image, :name, :price, :description, :category_id, product_attachments_attributes: [:id, :product, :image])
   end
 end

@@ -6,45 +6,38 @@
     <%# --Sidebar %>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  
-    <h1 class="h2">Banner</h1>
-    <div class= 'd-flex'>
-   
-    </div>
-  </div>
-
-  <div class="">
-    <section class="text-left d-flex justify-content-start">
-      <div class="mt-2">
-        <h5> ADD BANNER </h5>
-        <%= form_with model: @banner, url: admin_banners_path, method: :post do |f| %>
-        <div class="mb-3 row">
-          <label for="staticEmail" class="col-sm-4 col-form-label">Upload Image</label>
-          <div class="col-sm-12">
-            <%=f.file_field :image ,accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
-          </div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Banner</h1>
+        <div class= 'd-flex'>
         </div>
-        <div class='d-flex'>
-          <%= f.submit 'Upload', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
-          <%= link_to "Back", admin_banners_path, class:"ms-2 btn btn-link d-block" %>
-        </div>
-
-
-        <% end  %>
-        <script type="text/javascript">
-          $("#banner_image").bind("change", function(){
-              var size_in_megabytes = this.files(0).size/1024/1024;
-                if (size_in_megabytes > 1) {
-                  alert("Maximum file size is 1MB. Please choose an other file!");
-                }
-            });
-        </script>
       </div>
-    </section>
 
-  </div>
-</main>
+      <div class="">
+        <section class="text-left d-flex justify-content-start">
+          <div class="mt-2">
+            <h5> ADD BANNER </h5>
+            <%= form_with model: @banner, url: admin_banners_path, method: :post do |f| %>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Upload Image</label>
+              <div class="col-sm-12">
+                <%=f.file_field :image ,accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Upload Image</label>
+                <img id="blah" src="#" alt="your image" />
+            </div>
+
+            <div class='d-flex'>
+              <%= f.submit 'Upload', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
+              <%= link_to "Back", admin_banners_path, class:"ms-2 btn btn-link d-block" %>
+            </div>
+            <% end  %>
+          </div>
+        </section>
+      </div>
+    </main>
 
   </div>
 </div>

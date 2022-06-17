@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
   def index
     @q = User.all.ransack(params[:q])
-    @users = @q.result.page(params[:page]).per(20)
+    @users = @q.result.order(updated_at: :desc).page(params[:page]).per(20)
   end
 
   def edit
