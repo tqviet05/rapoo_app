@@ -17,13 +17,13 @@
       <%= order.address.blank? ? 'No value': order.address  %>
     </td>
     <td>
-      <%= order.price.blank? ? 'No value': order.price  %>
+      <%= order.price.blank? ? 'No value': number_with_delimiter(order.price.to_i, delimiter: '.')  %>
     </td>
     <td>
-      <%= order.tax.blank? ? 'No value': order.tax   %>
+      <%= order.tax.blank? ? 'No value': number_with_delimiter(order.tax.to_i, delimiter:  '.')  %>
     </td>    
     <td>
-      <%= order.payment.blank? ? 'No value': order.payment   %>
+      <%= order.payment.blank? ? 'No value': number_with_delimiter(order.payment.to_i, delimiter: '.')   %>
     </td>
     <td>
       <%= order.created_at.blank? ? 'No value': order.created_at   %>

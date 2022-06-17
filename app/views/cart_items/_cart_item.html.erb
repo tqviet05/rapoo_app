@@ -18,8 +18,8 @@
         <%= form_for cart_item do |f| %>
           <div>
             <%= hidden_field_tag :pid, cart_item.product_id %>
-            <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: cart_item.quantity) %>
-            <%= f.submit('Update', class:'') %>
+            <%= f.number_field(:quantity, min: 1, step: 1, style:"width: 70px;", value: cart_item.quantity, clss:'form-control') %>
+            <%= f.submit('Update', class:"me-2 btn btn-outline-primary btn-block btn-sm") %>
           </div>
         <% end %>
 

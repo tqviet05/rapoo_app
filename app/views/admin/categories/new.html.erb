@@ -6,44 +6,42 @@
     <%# --Sidebar %>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  
-    <h1 class="h2">Categories</h1>
-    <div class= 'd-flex'>
-   
-    </div>
-  </div>
-
-  <div class="">
-    <section class="text-left d-flex justify-content-start">
-
-      <div class="mt-2">
-        <h5> ADD CATEGORY </h5>
-
-        <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
-        <div class="mb-3 row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
-          <div class="col-sm-10">
-            <%=f.text_field :name , class:'form-control',id:"staticEmail", placeholder:"category name", type:"text"  %>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Position</label>
-          <div class="col-sm-10">
-            <%=f.number_field :position, in:0..(Category.maximum(:position).to_i+10), step: 1,value: (Category.maximum(:position).to_i+1) ,  class:"form-control", id:"inputPassword" %>
-          </div>
-        </div>
- 
-        <div class='d-flex'>
-          <%= f.submit 'Create', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
-          <%= link_to "Back", admin_categories_path, class:"ms-2 btn btn-link d-block btn-" %>
-        </div>
-        <% end  %>
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Categories</h1>
       </div>
-    </section>
 
-  </div>
-</main>
+      <div class="">
+        <section class="text-left d-flex justify-content-start">
+
+          <div class="mt-2">
+            <h5> ADD CATEGORY </h5>
+
+            <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
+
+              <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <%=f.text_field :name , class:'form-control',id:"staticEmail", placeholder:"category name", type:"text"  %>
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Position</label>
+                <div class="col-sm-10">
+                  <%=f.number_field :position, in:0..(Category.maximum(:position).to_i+10), step: 1,value: (Category.maximum(:position).to_i+1) ,  class:"form-control", id:"inputPassword" %>
+                </div>
+              </div>
+      
+              <div class='d-flex'>
+                <%= f.submit 'Create', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
+                <%= link_to "Back", admin_categories_path, class:"ms-2 btn btn-link d-block " %>
+              </div>
+
+            <% end  %>
+          </div>
+        </section>
+      </div>
+    </main>
 
   </div>
 </div>

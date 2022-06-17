@@ -6,45 +6,36 @@
     <%# --Sidebar %>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  
-    <h1 class="h2">Customers Update</h1>
-    <div class= 'd-flex'>
-   
-    </div>
-  </div>
-
-  <div class="table-responsive">
-
-    <section class="text-center d-flex justify-content-center container">
-      <div class="mt-2">
-        <h5> Update my profile </h5>
-        <%= form_with model: @user, url: admin_user_path, method: :put do |f| %>
-        <p> Name: <%=f.text_field :name %></p>
-        <p> Phone: <%=f.text_field :phone %></p>
-        <p>
-          <%= f.label :gender %> <br />
-          <%= f.label :gender, 'male' %>
-          <%= f.radio_button :gender, 1, checked: true %>
-          <%= f.label :gender, 'female' %>
-          <%= f.radio_button :gender, 0 %><br />
-        </p >
-        <p> Address: <%=f.text_field :address %></p>
-        <p class="d-flex"> 
-          Birthday: <%= f.date_field :birthday, autofocus: true, autocomplete: 'birthday', class: 'form-control' %>
-        </p>
-        <div class='flex'>
-          <%= f.submit 'Update', class:"btn btn-dark d-block mx-auto btn-submit", data: { disable_with: 'Update' } %>
-          <%= link_to "Back", admin_users_path %>
-        </div>
-
-
-        <% end  %>
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Customers Update</h1>
       </div>
-    </section>
 
-  </div>
-</main>
-
+      <div class="table-responsive">
+        <section class="text-left d-flex justify-content-start">
+          <div class="mt-2">
+            <h5> Update my profile </h5>
+            <%= form_with model: @user, url: admin_user_path, method: :put do |f| %>
+              <p> Name: <%=f.text_field :name, class: 'form-control'  %></p>
+              <p> Phone: <%=f.text_field :phone, class: 'form-control'  %></p>
+              <p>
+                <%= f.label :gender %> <br />
+                <%= f.label :gender, 'male' %>
+                <%= f.radio_button :gender, 1, checked: true %>
+                <%= f.label :gender, 'female' %>
+                <%= f.radio_button :gender, 0 %><br />
+              </p >
+              <p> Address: <%=f.text_field :address, class: 'form-control'  %></p>
+              <p class="d-flex"> 
+                Birthday: <%= f.date_field :birthday, autofocus: true, autocomplete: 'birthday', class: 'form-control' %>
+              </p>
+              <div class='d-flex'>
+                <%= f.submit 'Update', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
+                <%= link_to "Back", admin_users_path, class:'ms-2 btn btn-link d-block'  %>
+              </div>
+            <% end  %>
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
 </div>

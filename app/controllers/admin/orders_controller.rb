@@ -1,6 +1,6 @@
 class Admin::OrdersController < AdminController
   def index
-    @q = Order.all.ransack(params[:q])
+    @q = Order.all.includes(:user).ransack(params[:q])
     @orders = @q.result.page(params[:page]).per(20)
   end
 
