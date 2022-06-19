@@ -32,7 +32,6 @@ class DeliveriesController < ApplicationController
       redirect_to deliveries_path, notice: 'Delivery was successfully updated.'
     else
       render :new
-      # redirect_to request.referrer, alert: "Delivery was not updated. #{@delivery.errors.messages}"
     end
     
   end

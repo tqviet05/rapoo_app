@@ -4,9 +4,9 @@
   
     <div class="col-md-10">
       <!-- Result search -->
-      <div class="row g-3">
+      <div class="row g-3 products">
         <%= render @products %>
-      <%= paginate @products, window: 3 %>
+        <%= paginate @products, window: 3 %>
       </div>
       <!-- / Result search -->
     </div>

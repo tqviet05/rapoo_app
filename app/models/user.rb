@@ -10,6 +10,12 @@ class User < ApplicationRecord
   has_many :orders
   has_many :recently_products
   has_many :deliveries
+
   def human_gender
+    if gender.blank?
+      return "No value"
+    else
+    gender == true ? "male" : "female"
+    end
   end
 end

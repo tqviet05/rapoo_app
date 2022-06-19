@@ -19,14 +19,18 @@
           <div class="form-group">
             <label for="exampleFormControlInput1">Name</label>
             <%= f.text_field :name, class: "form-control" %>
+            <p class="text-danger"><%= f.object.errors.messages[:name].first %></p>
+
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Phone</label>
             <%= f.text_field :phone, class: "form-control"  %>
+            <p class="text-danger"><%= f.object.errors.messages[:phone].first %></p>
           </div>          
           <div class="form-group">
             <label for="exampleFormControlInput1">Address</label>
             <%= f.text_field :address, class: "form-control"  %>
+            <p class="text-danger"><%= f.object.errors.messages[:address].first %></p>
           </div>
 
           <h5 class="mb-0 mt-3">Card details</h5>

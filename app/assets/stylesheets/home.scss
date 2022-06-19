@@ -1,9 +1,30 @@
 // Place all the styles related to the rapoo_app controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.card-height{
-  min-height:268px
-}
 .pagination{
   justify-content: center;
+}
+
+.product-recently, .products {
+  .item {
+    // max-height: 350px;
+    position: relative
+  }
+
+  .btn-add-cart {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .card {
+    height: 100%;
+  }
+}
+
+.products {
+  .item {
+    height: 330px
+  }
 }

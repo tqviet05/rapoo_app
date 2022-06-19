@@ -10,11 +10,15 @@
     <%= render 'layouts/header_app'  %>
     <div class="container">
       <% if notice %>
-          <p class="notice text-success"><%= notice %></p>
+        <div class="alert alert-success">
+          <strong><%= notice %></strong>
+        </div>
       <% end %>
 
       <% if alert %>
-        <p class="alert text-danger"><%= alert %></p>
+        <div class="alert alert-danger">
+          <strong><%= alert %></strong>
+        </div>
       <% end %>
     </div>
 

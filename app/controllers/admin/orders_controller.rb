@@ -9,9 +9,12 @@ class Admin::OrdersController < AdminController
   end
 
   def update
-    order = Order.find_by(id: params[:id])
-    order.update( order_params)
-    redirect_to admin_orders_path
+    @order = Order.find_by(id: params[:id])
+    if @order.update( order_params)
+    redirect_to admin_orders_path, notice: 'Order was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy

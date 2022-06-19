@@ -28,19 +28,21 @@
 
                 <%= render @cart_items %>
 
-                <div class="card mb-3">
-                  <div class="d-flex justify-content-between mt-2">
-                    <p class="mb-2 ms-4 fw-bold">TOTAL</p>
-                    <p class="mb-2 me-2 fw-bold">
-                      <%=number_with_delimiter(@total.to_i, delimiter: '.') %> VND
-                    </p>
+                <%if @total != 0 %>
+                  <div class="card mb-3">
+                    <div class="d-flex justify-content-between mt-2">
+                      <p class="mb-2 ms-4 fw-bold">TOTAL</p>
+                      <p class="mb-2 me-2 fw-bold">
+                        <%=number_with_delimiter(@total.to_i, delimiter: '.') %> VND
+                      </p>
+                    </div>
+
+                    <div class="d-flex justify-content-end mb-2">
+                      <%= link_to 'Checkout',new_order_path(), class:"me-2 btn btn-outline-primary btn-block btn-lg"  %>
+                    </div>
                   </div>
-                  <div class="d-flex justify-content-end mb-2">
-                    <%if @total != 0 %>
-                    <%= link_to 'Checkout',new_order_path(), class:"me-2 btn btn-outline-primary btn-block btn-lg"  %>
-                    <% end %>
-                  </div>
-                </div>
+                <% end %>
+
               </div>
               <%# Panel payment page %>
               <%# render 'payment' %>

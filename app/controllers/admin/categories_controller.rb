@@ -9,9 +9,12 @@ class Admin::CategoriesController < AdminController
   end
 
   def update
-    category = Category.find_by(id: params[:id])
-    category.update( category_params)
-    redirect_to admin_categories_path
+    @category = Category.find_by(id: params[:id])
+    if @category.update( category_params)
+    redirect_to admin_categories_path, notice: 'Category updated successfully.'
+    else
+      render :edit
+    end
   end
 
   def new
@@ -20,9 +23,12 @@ class Admin::CategoriesController < AdminController
   end
 
   def create
-    # param = params.require(:category).permit(:email, :password, :password_confirmation)
-    category = Category.create(category_params)
-    redirect_to admin_categories_path
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to admin_categories_path, notice: 'Category was successfully created.'
+    else
+      render :new
+    end
 
   end
 

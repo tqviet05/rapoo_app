@@ -16,12 +16,15 @@ class Admin::BannersController < AdminController
 
   def new
     @banner = Banner.new
-
   end
 
   def create
-    banner = Banner.create(banner_params)
-    redirect_to admin_banners_path
+    @banner = Banner.new(banner_params)
+    if @banner.save
+      redirect_to admin_banners_path, notice: 'Delivery was successfully updated.'
+    else
+      render :new
+    end
 
   end
 
@@ -33,6 +36,7 @@ class Admin::BannersController < AdminController
   private
 
   def banner_params
-    params.require(:banner).permit(:id, :image)
+    params.merge!(banner: { image: nil }) if params[:banner].blank?
+    params.require(:banner).permit(:image)
   end
 end

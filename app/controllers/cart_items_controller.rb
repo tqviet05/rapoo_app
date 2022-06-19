@@ -44,7 +44,7 @@ class CartItemsController < ApplicationController
   def build_cart_item
     cart_item = current_cart.cart_items.find_by(product_id: params[:pid])
     if cart_item.blank?
-      current_cart.cart_items.create!(product_id: params[:pid], quantity: 1)
+      current_cart.cart_items.create!(product_id: params[:pid], quantity: permit_params_quanlity)
     else
       cart_item.increment!(:quantity, permit_params_quanlity)
     end

@@ -17,7 +17,7 @@
       <p> Address: <%=current_user.address ? current_user.address : "No information" %></p>
       <p> Gender: <%=current_user.gender ? "Male" : "Female" %></p>
       <p> Birthday: <%=current_user.birthday ? current_user.birthday : "No information" %></p>
-      <%= link_to "Update Profile", edit_user_path(current_user.id), class: 'btn btn-dark' %>
+      <%= link_to "Update Profile", edit_user_path(current_user.id), class: 'btn btn-dark text-white' %>
 
     </div>
   </div>

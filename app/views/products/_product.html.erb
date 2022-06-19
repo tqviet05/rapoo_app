@@ -1,8 +1,8 @@
-<div class="col-md-3">
-  <div class="card p-3 text-center card-height">
+<div class="col-md-3 item">
+  <div class="card p-3 text-center">
     <%= link_to image_tag(product.image.url, alt:"", width:"170px"),product_path(product)  %>
-    <p class="h6 pt-2"><%= product.name %></p>
-    <p class="h5 ">Price: <%= number_with_delimiter(product.price.to_i, delimiter: '.') %> VND</p>
-    <%= button_to 'Add Cart',cart_items_path(pid: product, quantity: 1), class:'btn btn-outline-info btn-lg' %>
+    <p class="h6 pt-2"><%= product.name.truncate_words(5) %></p>
+    <p class="h5 "><%= number_with_delimiter(product.price.to_i, delimiter: '.') %> <sup>đ<sup></p>
+    <%= button_to 'Add Cart',cart_items_path(pid: product, quantity: 1), class:'btn btn-outline-info btn-sm btn-add-cart' %>
   </div>
 </div>

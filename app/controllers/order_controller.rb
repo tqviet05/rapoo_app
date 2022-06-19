@@ -10,19 +10,23 @@ class OrderController < ApplicationController
   end
 
   def create
-    # chua validate form nil, model trung records
-    # tao delivery
-    # binding.pry
     current_delivery = current_user.deliveries.find_or_create_by(id: params[:delivery][:id])
-    current_delivery.update!(delivery_params)
-    current_order = 
-    Order.find_or_create_by(
-      user_id: current_user.id, 
-      name: current_delivery.name, 
-      phone: current_delivery.phone,
-      address: current_delivery.address,
-      cart_id: current_cart.id
-    )
+    if current_delivery.update(delivery_params)
+    else
+      @cart_items = current_cart.cart_items.includes(:product)
+      @total  = @current_cart[:total_money]
+      @deliveries = current_user.deliveries
+      @deliveries_form = current_delivery
+      return render :new
+    end
+    current_order =
+      Order.find_or_create_by(
+        user_id: current_user.id, 
+        name: current_delivery.name, 
+        phone: current_delivery.phone,
+        address: current_delivery.address,
+        cart_id: current_cart.id
+      )  
     price = @current_cart.total_money
     tax = 10
     coupon = 0
