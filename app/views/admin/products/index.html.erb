@@ -10,13 +10,10 @@
       
         <h1 class="h2">Products</h1>
         <div class= 'd-flex'>
-        <%= search_form_for @q ,url: admin_products_path, class: "" do |f| %>
-          <%= f.search_field :category_name_cont, class:"form-control rounded-2 border-1", placeholder:"Search...", aria_label:"Search"  %> 
-        <% end %> 
-        <%= link_to 'Add Product',new_admin_product_path, class:'btn btn-dark ms-1' %>
-
-        <%# <input class="form-control w-25 rounded-2 border-1" type="text" placeholder="Search" aria-label="Search"> %>
-
+          <%= search_form_for @q ,url: admin_products_path, class: "" do |f| %>
+            <%= f.search_field :category_name_cont, class:"form-control rounded-2 border-1", placeholder:"Search...", aria_label:"Search"  %> 
+          <% end %> 
+          <%= link_to 'Add Product',new_admin_product_path, class:'btn btn-dark ms-1' %>
         </div>
       </div>
 

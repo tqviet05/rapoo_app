@@ -26,12 +26,12 @@
     
 
     <td>
-      <%= link_to admin_product_path(product.id), method: :delete, class:"color: #cecece;", data: { confirm: 'Are you sure?' } do %>
+      <%= link_to admin_product_path(product.id), method: :delete, style:"color: #cecece;", data: { confirm: 'Are you sure?' } do %>
         <i class="fas fa-trash-alt"></i>
         <% end %>
     </td>
     <td>
-      <%= link_to edit_admin_product_path(product.id), class:"color: #cecece;" do %>
+      <%= link_to edit_admin_product_path(product.id), style:"color: #cecece;" do %>
         <i class="fa-solid fa-pen"></i>
         <% end %>
     </td>

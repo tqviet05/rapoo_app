@@ -1,0 +1,29 @@
+<% provide(:title, 'Deliveries') %>
+<section class="container">
+  <div class="row mt-2">
+    <div class="col-3">
+
+      <%# SIDE BAR %>
+      <%= render partial: 'users/side_bar_user.html.erb' %>
+      <%# --/SIDE BAR %>
+    </div> 
+    <div class="col-9">
+      <div class="text-left d-flex justify-content-start">
+        <div class="mt-2">
+          <%= form_with model: @delivery, url: deliveries_path, method: :post do |f| %>
+            <p> Name: <%=f.text_field :name, class: 'form-control'  %></p>
+            <p class="text-danger"><%= f.object.errors.messages[:name].first %></p>
+            <p> Address: <%=f.text_field :address, class: 'form-control'  %></p>
+            <p class="text-danger"><%= f.object.errors.messages[:address].first %></p>
+            <p> Phone: <%=f.text_field :phone, class: 'form-control'  %></p>
+            <p class="text-danger"><%= f.object.errors.messages[:phone].first %></p>
+            <div class='d-flex'>
+              <%= f.submit 'Update', class:"btn btn-dark d-block btn-submit", data: { disable_with: 'Update' } %>
+              <%= link_to "Back", request.referrer, class:'ms-2 btn btn-link d-block'  %>
+            </div>
+          <% end  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

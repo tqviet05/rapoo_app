@@ -2,14 +2,19 @@
 <section class="container">
   <div class="row mt-2">
     <div class="col-3">
-
       <%# SIDE BAR %>
       <%= render partial: 'users/side_bar_user.html.erb' %>
       <%# --/SIDE BAR %>
     </div> 
     <div class="col-9">
+      <div class= 'd-flex justify-content-between'>
+        <h3 >Deliveries</h3>
+        <%= link_to 'Add Delivery', new_delivery_path, class:'btn btn-dark btn_sm ms-1' %>
+      </div>
+      <hr>
       <%= render partial: 'deliveries/delivery', collection: @deliveries %>
       <%= paginate @deliveries, window: 3 %>
+
      
     </div>
   </div>

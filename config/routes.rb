@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # get 'deliveries/index'
   # get 'deliveries/new'
   get 'users/order'
-  get 'users/address'
   devise_for :users
 
   resources :home, only: [:index]
@@ -13,9 +12,9 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :update, :destroy]
   resources :order, only: [:new, :create]
   resources :order_items, only: :create
-  # resources :deliveries, only: :index
+  resources :deliveries, only: [:destroy, :edit, :create, :update, :index, :new]
   resources :histories, only: [:index]
-  resources :users, only: [:show, :update, :edit]
+  resources :users, only: [:show, :update, :edit, :new]
 
   
   root 'home#index'

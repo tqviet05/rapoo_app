@@ -37,11 +37,11 @@
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                 <li><%= link_to "Account",user_path(current_user.id),class:"dropdown-item" %></li>
                 <li><%= link_to "Purchase",users_order_path,class:"dropdown-item" %></li>
-                <li><%= link_to "History",users_address_path,class:"dropdown-item" %></li>
+                <li><%= link_to "History",deliveries_path,class:"dropdown-item" %></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                <li><%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", method: :delete, data: { confirm: 'Are you sure?' } %></li>
               </ul>
             </div>
           <%else %>

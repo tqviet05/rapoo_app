@@ -1,9 +1,24 @@
-  <div class="ms-2">
+  <div class="ms-2 row">
+    <div class="col-10">
 
-    <p> Name: <%= delivery.name%></p>
-    <p> Delivery address: <%= delivery.address%></p>
-    <p> Phone Number: <%= delivery.phone%></p>
+      <p> Name: <%= delivery.name%></p>
+      <p> Delivery address: <%= delivery.address%></p>
+      <p> Phone Number: <%= delivery.phone%></p>
 
+     </div>
+    <div class="col-1">
+      <p> 
+        <%= link_to delivery_path(delivery.id), method: :delete, style:"color: #cecece;", data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-1">
+      <p> 
+        <%= link_to edit_delivery_path(delivery.id), method: :get, style:"color: #cecece;" do %>
+          <i class="fa-solid fa-pen"></i>
+        <% end %>
+      </p>
+    </div>
   </div>
-
 <hr>

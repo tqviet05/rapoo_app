@@ -27,9 +27,7 @@ class Admin::ProductsController < AdminController
   end
 
   def create
-
     @product = Product.new(product_params)
-    # @product_attachments = @product.product_attachments.new(image: params[:product][:product_attachments_attributes])
     if @product.save
       params[:product_attachments]["image"].each { |image| @product.product_attachments.create!(image: image) }
       redirect_to admin_products_path, notice: 'Post was successfully created.'
