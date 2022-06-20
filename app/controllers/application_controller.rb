@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :build_ransack
   helper_method :build_number_cart_items
-
+  def page_404
+      render file: 'public/404.html', layout: false
+  end
 
   def build_ransack
     @q = Product.ransack(params[:q])

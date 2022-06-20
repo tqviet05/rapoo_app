@@ -13,6 +13,5 @@ end
   User.seed do |s|
     s.email = "guest1#{t}@example.com"
     s.password = '123123'
-
   end
 end

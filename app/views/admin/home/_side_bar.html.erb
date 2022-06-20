@@ -2,9 +2,8 @@
   <div class="position-sticky pt-3">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">
-          Dashboard
-        </a>
+        <%= link_to 'Dashboard',admin_home_index_path, class:'nav-link' %>
+
       </li>
       <li class="nav-item">
         <%= link_to 'Categories',admin_categories_path, class:'nav-link' %>

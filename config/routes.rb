@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :histories, only: [:index]
   resources :users, only: [:show, :update, :edit, :new]
 
-  
+  get "*path", to: "application#page_404"
+
   root 'home#index'
 
   namespace :admin do
@@ -33,4 +34,3 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :edit, :new, :create, :update, :destroy]
   end
 end
-# ,only: [:index, :edit, :update, :destroy]

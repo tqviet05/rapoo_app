@@ -22,9 +22,10 @@ class CartItemsController < ApplicationController
     if cart_item_unlimit?
       current_cart
       @cart_item = current_cart.cart_items.find_or_create_by!(id: params[:id]) 
-      @cart_item.update!(quantity: params[:cart_item][:quantity] )
-      respond_to do |format|
-        format.html { redirect_to request.referrer, notice: 'Add cart success' }
+      if @cart_item.update(quantity: params[:cart_item][:quantity] )
+        redirect_to request.referrer, notice: 'Add cart success' 
+      else
+        redirect_to request.referrer, alert: 'Add cart limit 50' 
       end
       # redirect_to request.referrer || root_url
     else
