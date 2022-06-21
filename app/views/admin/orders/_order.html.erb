@@ -29,7 +29,7 @@
       <%= order.created_at.blank? ? 'No value': order.created_at   %>
     </td>
     <td>
-      <%= link_to admin_order_path(order.id), method: :delete, style:"color: #cecece;" do %>
+      <%= link_to admin_order_path(order.id), method: :delete, style:"color: #cecece;", data: { confirm: 'Are you sure?' }  do %>
         <i class="fas fa-trash-alt"></i>
         <% end %>
     </td>

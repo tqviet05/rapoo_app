@@ -17,7 +17,10 @@ class Admin::ProductsController < AdminController
       params[:product_attachments]["image"].each {|i| @product_attachments = @product.product_attachments.create!(image: i)}
       redirect_to admin_products_path, notice: 'Post was successfully created.'
     else
-      redirect_to edit_admin_product_path
+      # redirect_to edit_admin_product_path
+      @product_attachments = @product.product_attachments.build
+      render :edit
+
     end
   end
 

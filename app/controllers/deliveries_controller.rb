@@ -8,7 +8,7 @@ class DeliveriesController < ApplicationController
   end
 
   def edit
-    @delivery = current_user.deliveries.build
+    @delivery = current_user.deliveries.find(params[:id])
 
   end
 
