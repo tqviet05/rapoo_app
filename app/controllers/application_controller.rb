@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
  
   before_action :configure_permitted_parameters, if: :devise_controller?
+  after_action :remove_recently_products
 
   layout Proc.new { |controller| controller.devise_controller? ? 'user' : 'application' }
 
@@ -30,10 +31,22 @@ class ApplicationController < ActionController::Base
   end
 
   protected
- 
+
   def configure_permitted_parameters
     added_attrs = [:username, :email, :password, :password_confirmation, :remember_me, :name, :phone, :gender]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
+
+  def remove_recently_products
+    cookies.delete(:recently_product_ids) if recently_products? && current_user
+  end
+
+  def recently_product_ids
+    cookies.signed[:recently_product_ids] 
+  end
+  
+  def recently_products?
+    cookies.signed[:recently_product_ids] ? true : false
   end
 end

@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @product = Product.find_by(id: params[:id])
     @product_attachments = @product.product_attachments
     if cookies.signed[:recently_product_ids].blank?
