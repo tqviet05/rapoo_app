@@ -11,15 +11,14 @@ class OrderController < ApplicationController
 
   def create
     current_delivery = current_user.deliveries.find_or_create_by(id: params[:delivery][:id])
-    if current_delivery.update(delivery_params)
-    else
+    unless current_delivery.update(delivery_params)
       @cart_items = current_cart.cart_items.includes(:product)
       @total  = @current_cart[:total_money]
       @deliveries = current_user.deliveries
       @deliveries_form = current_delivery
       return render :new
     end
-    current_order =
+    @current_order =
       Order.find_or_create_by(
         user_id: current_user.id, 
         name: current_delivery.name, 
@@ -27,28 +26,38 @@ class OrderController < ApplicationController
         address: current_delivery.address,
         cart_id: current_cart.id
       )  
-    price = @current_cart.total_money
-    tax = 10
-    coupon = 0
-    @payment = price*(1+tax/100) - price*(coupon/100)
-    current_order.update!(price: price, coupon: coupon, payment: @payment, tax: tax) if charger
+    order_params(
+      price: @current_cart.total_money,
+      tax: 10
+    )
+    @current_order.update!(payment_params) if charger
+    create_order_items 
+    current_cart.destroy
+    redirect_to histories_path, notice: 'Payment successful' 
+  end
+  
+  private
 
+  attr_reader :payment_params
+  def create_order_items 
     current_cart.cart_items.includes(:product).each do |cart_item|
-      current_order.order_items.create!(
+      @current_order.order_items.create!(
         quantity: cart_item.quantity, 
         product_id: cart_item.product_id, 
         price: cart_item.product.price,
       )
     end
-    
-    current_cart.destroy
-
-    respond_to do |format|
-      format.html { redirect_to histories_path, notice: 'Payment successful' }
-    end
   end
-  
-  private 
+
+  def order_params price: 0.0, tax: 0.0, coupon: 0.0
+    @payment_params = {
+      payment: price*(1+tax/100.0) - price*(coupon/100.0),
+      coupon: coupon,
+      tax: tax,
+      price: price
+    }
+  end
+
 
   def delivery_params
     params.require(:delivery).permit(:phone, :name, :address)
@@ -64,7 +73,7 @@ class OrderController < ApplicationController
     token = params[:delivery][:stripe_token]
 
     charge = Stripe::Charge.create({
-      amount: @payment.to_i,
+      amount: payment_params[:payment].to_i,
       currency: 'vnd',
       description: 'Rapoo app',
       source: token,

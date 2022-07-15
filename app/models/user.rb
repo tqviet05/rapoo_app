@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :deliveries
 
   def human_gender
-    if gender.blank?
-      return "No value"
+    if gender.nil?
+      return nil
     else
     gender == true ? "male" : "female"
     end
