@@ -27,21 +27,26 @@
 <!-- / BANNER SLIDER -->
 <main class="container">
 <!-- SECTION RECENTLY PRODUCTS -->
-<div class="product-recently my-5">
-  <h3 class="pb-2 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
-    Product recently
-  </h3>
+<% if @recently_products.present? %>
+  <div class="product-recently my-5">
+    <h3 class="pb-2 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
+      Products recently
+    </h3>
 
-  <div class="row g-3">
+    <div class="row g-3">
 
-    <%= render partial: 'product_recently', as: :p, collection: @recently_products %>
-    
+      <%= render partial: 'product_recently', as: :p, collection: @recently_products %>
+      
+    </div>
   </div>
-</div>
+<% end %>
 <!-- / SECTION RECENTLY PRODUCTS -->
   <div class="row g-5">
     <div class="col-md-10">
       <!-- Products -->
+      <h3 class="pb-2 mb-4 fst-italic" style='border-bottom: 4px solid #08a6c6'>
+        Products
+      </h3>
       <div class="row g-3 products">
         <%= render @products %>
         <%= paginate @products, window: 3 %>
