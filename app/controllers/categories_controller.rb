@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   def show
-    @categories = Category.all.order(position: :asc)
-    @products = Category.find_by!(id: params[:id]).products.page(params[:page]).per(12)
+    operator = Categories::ShowOperation.new(params)
+    operator.perform
+    @categories = operator.categories
+    @products = operator.products
   end
 end
