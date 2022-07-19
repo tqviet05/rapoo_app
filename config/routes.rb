@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # resources :order_items, only: :create
   resources :deliveries, only: [:destroy, :edit, :create, :update, :index, :new]
   resources :histories, only: [:index]
-  resources :users, only: [:show, :update, :edit, :new]
+  resources :users, only: [:show, :update, :edit]
 
   # get "*path", to: "application#page_404"
 
