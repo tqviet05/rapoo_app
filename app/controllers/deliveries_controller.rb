@@ -1,48 +1,51 @@
 class DeliveriesController < ApplicationController
   before_action :current_user, only: [:edit]
   def index
-    @deliveries = current_user.deliveries.page(params[:page]).per(4)
-  end
-  def show
-    @deliveries = current_user.deliveries.page(params[:page]).per(4)
+    operator = Deliveries::IndexOperation.new(params, current_user)
+    operator.perform
+    @deliveries = operator.deliveries
   end
 
   def edit
-    @delivery = current_user.deliveries.find(params[:id])
+    operator = Deliveries::EditOperation.new(params, current_user)
+    operator.perform
+    @delivery = operator.delivery
 
   end
 
   def update
-    @delivery = current_user.deliveries.find(params[:id])
-    if @delivery.update(param)
-      redirect_to deliveries_path, notice: 'Delivery was successfully updated.'
+    operator = Deliveries::UpdateOperation.new(params, current_user)
+    operator.perform
+    @delivery = operator.delivery
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_back fallback_location: request.referrer, notice: 'Delivery was successfully updated.'
     else
       render :edit
-      # redirect_to request.referrer, alert: "Delivery was not updated. #{@delivery.errors.messages}"
     end
   end
 
   def new
-    @delivery = current_user.deliveries.build
+    operator = Deliveries::NewOperation.new(params, current_user)
+    operator.perform
+    @delivery = operator.delivery
   end
 
   def create
-    @delivery = current_user.deliveries.build
-    if @delivery.update(param)
-      redirect_to deliveries_path, notice: 'Delivery was successfully updated.'
+    operator = Deliveries::CreateOperation.new(params, current_user)
+    operator.perform
+    @delivery = operator.delivery
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_back fallback_location: request.referrer, notice: 'Delivery was successfully created.'
     else
       render :new
     end
-    
   end
 
   def destroy
-    Delivery.find(params[:id]).destroy!
-    redirect_to request.referrer || user_address_path
-  end
-
-  private
-  def param
-    params.require(:delivery).permit(:name, :phone, :address)
+    operator = Deliveries::DestroyOperation.new(params)
+    operator.perform
+    redirect_back fallback_location: request.referrer
   end
 end
