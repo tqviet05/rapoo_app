@@ -13,7 +13,6 @@ module Histories
 
     private
     def load_orders
-      binding.pry
     @orders = current_user.orders.order(id: :desc).includes(order_items: :product).page(params[:page]).per(4)
     end
   end
