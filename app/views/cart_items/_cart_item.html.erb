@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-row align-items-center">
         <div>
-          <%= link_to image_tag("product#{rand(2...4)}.jpeg", alt:"Shopping item", width:"65px", class:"img-fluid rounded-3"), product_path(cart_item.product.id)  %>
+          <%= link_to image_tag(cart_item.product.image.url, alt:"Shopping item", width:"65px", class:"img-fluid rounded-3"), product_path(cart_item.product.id)  %>
         </div>
         <div class="ms-3">
           <h5>

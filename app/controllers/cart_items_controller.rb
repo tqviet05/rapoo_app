@@ -2,15 +2,14 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    Cart.find_or_create_by!(user_id: current_user.id)
-    if cart_item_unlimit?
-      build_cart_item
-      redirect_to root_path, notice: 'Add cart success' 
+    operator = CartItems::CreateOperation.new(params, current_user)
+    operator.perform
+    errors = operator.errors
+    if errors.blank?
+      redirect_back fallback_location: request.referrer, notice: 'Add cart success'
     else
-      redirect_to root_path, alert: 'Cart is fully'
+      redirect_back fallback_location: request.referrer, alert: errors.full_messages.first
     end
-  rescue => e
-    redirect_to root_path, alert: 'Add cart failed'
   end
 
   def destroy
@@ -19,7 +18,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    if cart_item_unlimit?
+    if cart_item_limit?
       current_cart
       @cart_item = current_cart.cart_items.find_or_create_by!(id: params[:id]) 
       if @cart_item.update(quantity: params[:cart_item][:quantity] )
@@ -38,7 +37,7 @@ class CartItemsController < ApplicationController
 
   private
 
-  def cart_item_unlimit?
+  def cart_item_limit?
     current_cart.cart_items.count < 20 ? true : false
   end
 
