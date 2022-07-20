@@ -33,11 +33,4 @@ class Admin::BannersController < AdminController
     operator.perform
     redirect_back fallback_location: request.referrer || admin_banners_path
   end
-
-  private
-
-  def banner_params
-    params.merge!(banner: { image: nil }) if params[:banner].blank?
-    params.require(:banner).permit(:image)
-  end
 end

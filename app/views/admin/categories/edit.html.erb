@@ -20,7 +20,7 @@
                 <label  class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
                   <%=f.text_field :name , value: @category.name, class:'form-control', placeholder:"category name", type:"text"  %>
-                  <p class="text-danger"><%= f.object.errors.messages[:name].first %></p>
+                  <p class="text-danger"><%= @errors.messages[:name].first if @errors.present? %></p>
                 </div>
               </div>
 
@@ -28,7 +28,7 @@
                 <label  class="col-sm-2 col-form-label">Position</label>
                 <div class="col-sm-10">
                   <%=f.number_field :position, in: 0..Category.count, step:1, class:'form-control', placeholder:"category position", type:"text"  %>
-                  <p class="text-danger"><%= f.object.errors.messages[:position].first %></p>
+                  <p class="text-danger"><%= @errors.messages[:position].first if @errors.present? %></p>
                 </div>
               </div>
               
