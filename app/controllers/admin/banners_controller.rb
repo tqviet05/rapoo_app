@@ -17,7 +17,11 @@ class Admin::BannersController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
+<<<<<<< HEAD
       redirect_to admin_banners_path, notice: 'Banners was successfully created.'
+=======
+      redirect_back fallback_location: request.referrer, notice: 'Banners was successfully created.'
+>>>>>>> admin banner page DONE
     else
       @banner = operator.banner
       render :new
