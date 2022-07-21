@@ -20,23 +20,23 @@
               <label class="col-sm-2 col-form-label">Name:</label>
               <div class="col-sm-10">
                 <%= f.text_field :name, value: @product.name, class: 'form-control' %>
-                <p class="text-danger"><%= f.object.errors.messages[:name].first %></p>
+                <p class="text-danger"><%= @errors.messages[:name].first if @errors.present? %></p>
               </div> 
             </div>
 
             <div class="mb-3 row">
               <label class="col-sm-2 col-form-label">Image:</label>
               <div class="col-sm-10">
-                <%=f.file_field :image, accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
-                <p class="text-danger"><%= f.object.errors.messages[:image].first %></p>
+                <%=f.file_field :image,value: @product.image,accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
+                <p class="text-danger"><%= @errors.messages[:image].first if @errors.present? %></p>
               </div> 
             </div>
 
             <div class="mb-3 row">
               <label class="col-sm-2 col-form-label">Image:</label>
               <div class="col-sm-10">
-                <%= f.fields_for :product_attachments do |p| %>
-                <%=p.file_field :image, multiple: true, name: 'product_attachments[image][]', accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
+                <%= f.fields_for :product_attachments do |image_form| %>
+                <%= image_form.file_field :image, multiple: false, name: 'product[product_attachments_attributes][image][]', accept: "image/jpeg, image/gif, image/png, image/jpg", class:'form-control'%>
                 <% end %>
               </div> 
             </div>
@@ -45,7 +45,7 @@
               <label class="col-sm-2 col-form-label">Price:</label>
               <div class="col-sm-10">
                 <%= f.text_field :price, value: @product.price, class: 'form-control' %>
-                <p class="text-danger"><%= f.object.errors.messages[:price].first %></p>
+                <p class="text-danger"><%= @errors.messages[:price].first if @errors.present? %></p>
               </div> 
             </div>
 
@@ -60,7 +60,7 @@
               <label class="col-sm-3 col-form-label">Categories:</label>
               <div class="col-sm-12">
                 <%= f.select :category_id, Category.all.collect {|category| [category.name, category.id]}, {  }, { include_blank: true, class:'form-select' } %>
-                <p class="text-danger"><%= f.object.errors.messages[:category_id].first %></p>
+                <p class="text-danger"><%= @errors.messages[:category_id].first if @errors.present? %></p>
               </div> 
             </div>
           

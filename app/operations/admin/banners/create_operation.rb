@@ -7,7 +7,6 @@ module Admin
     end
 
     def perform
-      # binding.pry
       load_banner
       validation { return @errors}
       build_banner
