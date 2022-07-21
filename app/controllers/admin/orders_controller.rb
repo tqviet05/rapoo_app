@@ -1,30 +1,32 @@
 class Admin::OrdersController < AdminController
   def index
-    @q = Order.all.includes(:user).ransack(params[:q])
-    @orders = @q.result.page(params[:page]).per(20)
+    operator = Admin::Orders::IndexOperation.new(params)
+    operator.perform
+    @q = operator.q
+    @orders = operator.orders
   end
 
   def edit
-    @order = Order.find_by(id: params[:id])
+    operator = Admin::Orders::EditOperation.new(params)
+    operator.perform
+    @order = operator.order
   end
 
   def update
-    @order = Order.find_by(id: params[:id])
-    if @order.update( order_params)
-    redirect_to admin_orders_path, notice: 'Order was successfully updated.'
+    operator = Admin::Orders::UpdateOperation.new(params)
+    operator.perform
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_to admin_orders_path, notice: 'Order was successfully updated.'
     else
+      @order = operator.order
       render :edit
     end
   end
 
   def destroy
-    Order.find(params[:id]).destroy!
-    redirect_to request.referrer || admin_orders_path
-  end
-
-  private
-
-  def order_params
-    params.require(:order).permit(:phone, :name, :address)
+    operator = Admin::Orders::DestroyOperation.new(params)
+    operator.perform
+    redirect_back fallback_location: request.referrer
   end
 end
