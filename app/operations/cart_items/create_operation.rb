@@ -19,7 +19,7 @@ module CartItems
     end
 
     def validation
-      @form = CartItems::CreateForm.new(quantity: permit_params_quanlity, cart_id: current_cart.id)
+      @form = CartItems::CreateForm.new(quantity: permit_params_quanlity, cart: current_cart.id)
       if @form.invalid?
         assignment_error
         yield

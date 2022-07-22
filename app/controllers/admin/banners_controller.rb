@@ -17,7 +17,7 @@ class Admin::BannersController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_banners_path, notice: 'Banners was successfully created.'
+      redirect_to admin_banners_path, notice: t('label.admin.banner.create')
     else
       @banner = operator.banner
       render :new

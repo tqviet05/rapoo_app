@@ -10,7 +10,7 @@ module CartItems
   
     def item_count_within_limit
       if quantity.to_i >= 50 || quantity.to_i < 1
-        errors.add(:cart, "Exceeded thing limit")
+        errors.add(:quantity, :mount)
       end
     end
   end

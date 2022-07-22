@@ -23,11 +23,11 @@ class OrderController < ApplicationController
       return render :new
     end
     @current_order = operator.current_order
-    redirect_to histories_path, notice: 'Payment successful' 
+    redirect_to histories_path, notice: t('label.order.create')
   end
   
   private
   def current_cart!
-    redirect_to root_path , alert: ' You needs add product into cart' if current_cart.blank?
+    redirect_to root_path , alert: t('label.order.alert') if current_cart.blank?
   end
 end

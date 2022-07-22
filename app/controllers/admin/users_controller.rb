@@ -15,7 +15,7 @@ class Admin::UsersController < AdminController
   def update
     operator = Admin::Users::UpdateOperation.new(params)
     operator.perform
-    redirect_to admin_users_path, notice: 'Customer updated successfully.'
+    redirect_to admin_users_path, notice: t('label.admin.users.update')
   end
 
   def new
@@ -27,7 +27,13 @@ class Admin::UsersController < AdminController
   def create
     operator = Admin::Users::CreateOperation.new(params)
     operator.perform
-    redirect_to admin_users_path, notice: 'Customer was successfully created.'
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_to admin_users_path, notice: t('label.admin.users.create')
+    else
+      @user = operator.user
+      render :new
+    end
   end
 
   def destroy

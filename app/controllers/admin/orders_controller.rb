@@ -17,7 +17,7 @@ class Admin::OrdersController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_orders_path, notice: 'Order was successfully updated.'
+      redirect_to admin_orders_path, notice: t('label.admin.orders.update')
     else
       @order = operator.order
       render :edit

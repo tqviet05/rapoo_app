@@ -18,7 +18,7 @@ class Admin::ProductsController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_products_path, notice: 'Product was successfully updated.'
+      redirect_to admin_products_path, notice: t('label.admin.products.update')
     else
       @product = operator.product
       @product_attachments = operator.product_attachments
@@ -38,7 +38,7 @@ class Admin::ProductsController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_products_path, notice: 'Category was successfully created.'
+      redirect_to admin_products_path, notice: t('label.admin.products.create')
     else
       @product = operator.product
       @product_attachments = operator.product_attachments

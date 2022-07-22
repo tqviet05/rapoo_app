@@ -30,4 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  label:
+  # Page admin
+    admin:
+      users:
+        update: 'Customer updated successfully.'
+        create: 'Customer was successfully created.'
+      products:
+        update: 'Product was successfully updated.'
+        create: 'Product was successfully created.'      
+      orders:
+        update: 'Order was successfully updated.'
+      categories:
+        update: 'Category updated successfully.'
+        create: 'Category was successfully created.'
+      banner:
+        create: 'Banners was successfully created.'
+  # Page main
+    cart_items:
+      create: 'Add cart success'
+      destroy: 'Delete cart success'
+      update: 'Update cart success'
+    deliveries:
+      create: 'Delivery was successfully created.'
+    order:
+      create: 'Payment successful' 
+      alert: 'You needs add product into cart' 

@@ -7,17 +7,24 @@ class Admin::Users::CreateOperation < ApplicationOperation
 
   def perform
     load_user
+    validation { return @errors}
     build_user
   end
 
   private
 
   def load_user
-    @user = User.new user_params
+    @form = @user = User.new user_params
   end
 
+  def validation
+    if @form.invalid?
+      assignment_error
+      yield
+    end
+  end
   def build_user
-    @user.save!
+    @user.save
   end
   
   def user_params

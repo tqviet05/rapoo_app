@@ -17,7 +17,7 @@ class Admin::CategoriesController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_categories_path, notice: 'Category updated successfully.'
+      redirect_to admin_categories_path, notice: t('label.admin.categories.update')
     else
       @category = operator.category
       render :edit
@@ -35,7 +35,7 @@ class Admin::CategoriesController < AdminController
     operator.perform
     @errors = operator.errors
     if @errors.blank?
-      redirect_to admin_categories_path, notice: 'Category was successfully created.'
+      redirect_to admin_categories_path, notice: t('label.admin.categories.create')
     else
       @category = operator.category
       render :new
