@@ -1,39 +1,44 @@
 class Admin::UsersController < AdminController
   def index
-    @q = User.all.ransack(params[:q])
-    @users = @q.result.order(updated_at: :desc).page(params[:page]).per(20)
+    operator = Admin::Users::IndexOperation.new(params)
+    operator.perform
+    @q = operator.q
+    @users = operator.users
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    operator = Admin::Users::EditOperation.new(params)
+    operator.perform
+    @user = operator.user
   end
 
   def update
-    user = User.find_by(id: params[:id])
-    user.update( user_params)
-    redirect_to admin_users_path
+    operator = Admin::Users::UpdateOperation.new(params)
+    operator.perform
+    redirect_to admin_users_path, notice: t('label.admin.users.update')
   end
 
   def new
-    @user = User.new
-
+    operator = Admin::Users::NewOperation.new
+    operator.perform
+    @user = operator.user
   end
 
   def create
-    param = params.require(:user).permit(:email, :password, :password_confirmation)
-    user = User.create(param)
-    redirect_to admin_users_path
-
+    operator = Admin::Users::CreateOperation.new(params)
+    operator.perform
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_to admin_users_path, notice: t('label.admin.users.create')
+    else
+      @user = operator.user
+      render :new
+    end
   end
 
   def destroy
-    User.find(params[:id]).destroy!
-    redirect_to request.referrer || admin_users_path
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:phone, :name, :address, :gender, :birthday)
+    operator = Admin::Users::DestroyOperation.new(params)
+    operator.perform
+    redirect_back fallback_location: request.referrer
   end
 end

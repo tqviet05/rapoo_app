@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     operator.perform
     errors = operator.errors
     if errors.blank?
-      redirect_back fallback_location: request.referrer, notice: 'Add cart success'
+      redirect_back fallback_location: request.referrer, notice: t('label.cart_items.create')
     else
       redirect_back fallback_location: request.referrer, alert: errors.full_messages.first
     end
@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
   def destroy
     operator = CartItems::DestroyOperation.new(params, current_user)
     operator.perform
-    redirect_back fallback_location: request.referrer, alert: 'Delete cart success'
+    redirect_back fallback_location: request.referrer, alert: t('label.cart_items.destroy')
   end
 
   def update
@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
     operator.perform
     errors = operator.errors
     if errors.blank?
-      redirect_back fallback_location: request.referrer, notice: 'Add cart success'
+      redirect_back fallback_location: request.referrer, notice: t('label.cart_items.update')
     else
       redirect_back fallback_location: request.referrer, alert: errors.full_messages.first
     end

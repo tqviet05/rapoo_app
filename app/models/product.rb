@@ -8,8 +8,6 @@ class Product < ApplicationRecord
   has_many :product_attachments
 
   accepts_nested_attributes_for :product_attachments
-  validates_associated :product_attachments
+  # validates_associated :product_attachments
 
-  validates :name, :category_id, :price, :image, presence: true
 end
-

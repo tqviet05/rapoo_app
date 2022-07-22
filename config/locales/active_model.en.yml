@@ -1,0 +1,73 @@
+en:
+  errors:
+    format:
+      "%{message}"
+  activemodel:
+    errors:
+      models:
+        admin/banner/update_form:
+          attributes:
+            image:
+              blank: 'Please choose image'
+        admin/categories/create_form:
+          attributes:
+            name:
+              blank: 'Please enter category name'
+            position:
+              blank: 'Please enter position'
+        admin/categories/update_form:
+          attributes:
+            name:
+              blank: 'Please enter category name'
+            position:
+              blank: 'Please enter position'
+        admin/order/update_form:
+          attributes:
+            name:
+              blank: "Please enter the recipient's name"
+            phone:
+              blank: 'Please enter the phone number'
+            address:
+              blank: 'Please enter the address'
+        admin/products/create_form:
+          attributes:
+            name:
+              blank: 'Please enter product name'
+            category_id:
+              blank: 'Please choose categories'
+            price:
+              blank: 'Please enter product price'
+            image:
+              blank: 'Please choose image'
+        admin/products/update_form:
+          attributes:
+            name:
+              blank: 'Please enter product name'
+            category_id:
+              blank: 'Please choose categories'
+            price:
+              blank: 'Please enter product price'
+            image:
+              blank: 'Please choose image'
+        cart_items/update_form:
+          attributes:
+            quantity:
+              mount: 'Exceeded thing limit'
+              blank: 'Please enter quantity'
+        cart_items/create_form:
+          attributes:
+            quantity:
+              blank: 'Please enter quantity'
+        deliveries/create_form:
+          attributes:
+            name: 'Please enter name'
+            phone: 'Please enter phone'
+            address: 'Please enter address'
+        deliveries/update_form:
+          attributes:
+            name: 'Please enter name'
+            phone: 'Please enter phone'
+            address: 'Please enter address'
+
+              
+

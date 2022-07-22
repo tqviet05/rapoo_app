@@ -18,13 +18,15 @@
               <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-5 col-form-label">Email:</label>
                 <div class="col-sm-12">
-                  <%=f.text_field :email , class:'form-control',id:"staticEmail", value:"email@example.com", type:"text"  %>
+                  <%=f.text_field :email, class:'form-control',id:"staticEmail", placeholder:"email@example.com", type:"text"  %>
+                  <p class="text-danger"><%= @errors.messages[:email].first if @errors.present? %></p>
                 </div>
               </div>
               <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-5 col-form-label">Password:</label>
                 <div class="col-sm-12">
                   <%=f.text_field :password, type:"password", class:"form-control", id:"inputPassword" %>
+                  <p class="text-danger"><%= @errors.messages[:password].first if @errors.present? %></p>
                 </div>
               </div>
       
@@ -32,6 +34,7 @@
                 <label for="inputPassword" class="col-sm-5 col-form-label">Password Confirmation:</label>
                 <div class="col-sm-12">
                   <%=f.text_field :password_confirmation, type:"password", class:"form-control", id:"inputPasswordConfirmation" %>
+                  <p class="text-danger"><%= @errors.messages[:password_confirmation].first if @errors.present? %></p>
                 </div>
               </div>
 

@@ -1,53 +1,54 @@
 class Admin::ProductsController < AdminController
   def index
-    @q = Product.all.includes(:category).includes(:product_attachments).ransack(params[:q])
-    @products = @q.result.page(params[:page]).per(20)
-    # @product_attachments = @product.product_attachments.all
+    operator = Admin::Products::IndexOperation.new(params)
+    operator.perform
+    @q = operator.q
+    @products = operator.products
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
-    @product_attachments = @product.product_attachments.build
+    operator = Admin::Products::EditOperation.new(params)
+    operator.perform
+    @product = operator.product
+    @product_attachments = operator.product_attachments
   end
 
   def update
-    @product = Product.find_by(id: params[:id])
-    # redirect_to admin_products_path
-    if @product.update(product_params)
-      params[:product_attachments]["image"].each {|i| @product_attachments = @product.product_attachments.create!(image: i)}
-      redirect_to admin_products_path, notice: 'Post was successfully created.'
+    operator = Admin::Products::UpdateOperation.new(params)
+    operator.perform
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_to admin_products_path, notice: t('label.admin.products.update')
     else
-      # redirect_to edit_admin_product_path
-      @product_attachments = @product.product_attachments.build
+      @product = operator.product
+      @product_attachments = operator.product_attachments
       render :edit
-
     end
   end
 
   def new
-    @product = Product.new
-    @product_attachments = @product.product_attachments.build
+    operator = Admin::Products::NewOperation.new
+    operator.perform
+    @product = operator.product
+    @product_attachments = operator.product_attachments
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      params[:product_attachments]["image"].each { |image| @product.product_attachments.create!(image: image) }
-      redirect_to admin_products_path, notice: 'Post was successfully created.'
+    operator = Admin::Products::CreateOperation.new(params)
+    operator.perform
+    @errors = operator.errors
+    if @errors.blank?
+      redirect_to admin_products_path, notice: t('label.admin.products.create')
     else
-      @product_attachments = @product.product_attachments.build
+      @product = operator.product
+      @product_attachments = operator.product_attachments
       render :new
     end
   end
 
   def destroy
-    Product.find(params[:id]).destroy!
-    redirect_to request.referrer || admin_products_path
-  end
-
-  private
-
-  def product_params
-    params.require(:product).permit(:image, :name, :price, :description, :category_id, product_attachments_attributes: [:id, :product, :image])
+    operator = Admin::Products::DestroyOperation.new(params)
+    operator.perform
+    redirect_back fallback_location: request.referrer
   end
 end

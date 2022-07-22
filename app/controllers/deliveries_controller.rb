@@ -37,7 +37,7 @@ class DeliveriesController < ApplicationController
     @delivery = operator.delivery
     @errors = operator.errors
     if @errors.blank?
-      redirect_back fallback_location: request.referrer, notice: 'Delivery was successfully created.'
+      redirect_back fallback_location: request.referrer, notice: t('label.delivery.create')
     else
       render :new
     end
